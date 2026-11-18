@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ibrahim Rifai | AI &amp; Data Scientist</title>
+<meta name="description" content="Portfolio of Ibrahim Rifai, an AI and data scientist in Cairo: RAG, computer vision, NLP and geospatial projects, with an assistant that answers from his résumé.">
+<meta name="theme-color" content="#f8faff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1129" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ibrahim Rifai | AI &amp; Data Scientist">
+<meta property="og:description" content="Portfolio of Ibrahim Rifai, an AI and data scientist in Cairo: RAG, computer vision, NLP and geospatial projects, with an assistant that answers from his résumé.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column. A live attention map opens the page; projects are ruled rows, each with its own signal-to-action pipeline; a projects x capabilities matrix reads like a small cross-attention map. Palette: lapis ink, faience turquoise, a little gold. */
+:root{
+  --bg:#edf1f8; --surface:#f8faff; --ink:#0d1838; --muted:#475678; --line:#cbd5e8;
+  --lapis:#1f3f9e; --accent:#087572; --gold:#a8730a;
+  --cell0:#dce4f2; --cell1:#12a39d; --cell2:#e0a92d;
+  --panel:#0d1838; --on-panel:#eaf0ff; --panel-line:#34437a; --accent-on:#4fe0d4;
+  --f-display:"Bricolage Grotesque","IBM Plex Sans Arabic","IBM Plex Sans",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a1129; --surface:#111a3b; --ink:#e9eefc; --muted:#9fb0d6; --line:#243059;
+    --lapis:#8aa4ff; --accent:#41d2c6; --gold:#e6b64f;
+    --cell0:#16224a; --cell1:#2bbfb5; --cell2:#f0c15a;
+    --panel:#16224f; --on-panel:#e9eefc; --panel-line:#34437a; --accent-on:#4fe0d4;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0a1129; --surface:#111a3b; --ink:#e9eefc; --muted:#9fb0d6; --line:#243059;
+  --lapis:#8aa4ff; --accent:#41d2c6; --gold:#e6b64f;
+  --cell0:#16224a; --cell1:#2bbfb5; --cell2:#f0c15a;
+  --panel:#16224f; --on-panel:#e9eefc; --panel-line:#34437a; --accent-on:#4fe0d4;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:76px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* language switch */
+#app[data-lang="en"] .ar{display:none!important}
+#app[data-lang="ar"] .en{display:none!important}
+#app[data-lang="ar"]{line-height:1.9}
+#app[data-lang="ar"] .name,#app[data-lang="ar"] h2,#app[data-lang="ar"] h3,#app[data-lang="ar"] .thesis{letter-spacing:0;line-height:1.3}
+.lab{font:500 .74rem/1.4 var(--f-mono);letter-spacing:.09em;text-transform:uppercase}
+#app[data-lang="ar"] .lab{font-family:var(--f-body);letter-spacing:0;text-transform:none;font-size:.82rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:22px;min-height:56px}
+.brand{font-family:var(--f-display);font-weight:700;text-decoration:none;margin-inline-end:auto}
+.nav{display:flex;gap:22px;font-size:.88rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+@media (max-width:760px){.nav{display:none}}
+.langbtn{font:500 .78rem var(--f-mono);background:transparent;color:var(--ink);border:1px solid var(--line);padding:5px 12px;border-radius:4px;cursor:pointer}
+.langbtn:hover{border-color:var(--accent)}
+
+/* hero */
+.hero{padding-block:clamp(36px,7vw,84px) clamp(36px,5vw,60px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{color:var(--accent);margin:0}
+.name{font-family:var(--f-display);font-weight:700;font-size:clamp(3rem,9vw,6rem);line-height:.92;letter-spacing:-.035em;margin:.3em 0 .25em}
+.name .en,.name .ar{display:block}
+.fullname{font:400 .8rem var(--f-mono);color:var(--muted);margin:0}
+#app[data-lang="ar"] .fullname{font-family:var(--f-body);font-size:.9rem}
+.thesis{font-family:var(--f-display);font-weight:500;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.25;color:var(--lapis);max-width:30ch;margin:1.3em 0 .8em;text-wrap:balance}
+.lede{color:var(--muted);max-width:60ch;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-block;font:500 .9rem var(--f-body);text-decoration:none;padding:10px 18px;border-radius:5px;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn.s{background:transparent;color:var(--ink)}
+.btn:hover{border-color:var(--accent)}
+.btn.p:hover{background:var(--accent);color:var(--bg)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:28px 0 0;padding:0;list-style:none;font:400 .78rem var(--f-mono);color:var(--muted)}
+#app[data-lang="ar"] .facts{font-family:var(--f-body);font-size:.88rem}
+.facts li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--gold);margin-inline-end:8px}
+.attn{border:1px solid var(--line);background:var(--surface)}
+.attn .bar{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;font:400 .7rem var(--f-mono);color:var(--muted);border-bottom:1px solid var(--line)}
+.attn .cv-wrap{width:100%}
+.attn canvas{display:block;max-width:100%;touch-action:pan-y}
+.attn .cap{margin:0;padding:10px 12px;font-size:.82rem;line-height:1.5;color:var(--muted);border-top:1px solid var(--line)}
+
+/* sections */
+.sec{padding-block:clamp(44px,7vw,88px);border-top:1px solid var(--line)}
+.sec-h{display:grid;gap:10px;margin-bottom:clamp(22px,4vw,38px);max-width:70ch}
+.kicker{color:var(--accent);margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,4.4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sec-h p{margin:0;color:var(--muted)}
+
+/* projects */
+.proj{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr);gap:14px clamp(24px,5vw,64px);padding-block:34px;border-top:1px solid var(--line)}
+.proj.first{border-top:0;padding-top:0}
+@media (max-width:820px){.proj{grid-template-columns:minmax(0,1fr)}}
+.proj>div{min-width:0}
+.proj h3{font-family:var(--f-display);font-weight:700;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.05;letter-spacing:-.02em;margin:0}
+.proj .tag{font:400 .78rem/1.55 var(--f-mono);color:var(--muted);margin:.6em 0 1em}
+#app[data-lang="ar"] .proj .tag{font-family:var(--f-body);font-size:.88rem}
+.links{display:flex;gap:14px;flex-wrap:wrap;font:500 .8rem var(--f-mono)}
+.links a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.pts{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:10px}
+.pts li{position:relative;padding-inline-start:22px}
+.pts li::before{content:"";position:absolute;inset-inline-start:0;top:.8em;width:9px;height:2px;background:var(--accent)}
+.flows{display:grid;gap:8px;margin:0 0 16px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:400 .76rem/1.35 var(--f-mono)}
+.flow .fl{color:var(--muted);min-width:3.6em}
+.node{padding:5px 9px;border:1px solid var(--line);background:var(--surface);border-radius:4px}
+.node.end{border-color:var(--accent);color:var(--accent)}
+.arr{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;font:400 .72rem var(--f-mono);color:var(--muted)}
+.chips li{padding:2px 8px;border:1px solid var(--line);border-radius:4px}
+
+/* matrix */
+.mx-scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+.mx{border-collapse:collapse;min-width:840px;width:100%}
+.mx th,.mx td{padding:9px 6px;text-align:center}
+.mx thead th{font:500 .74rem/1.3 var(--f-body);color:var(--muted);vertical-align:bottom;border-bottom:1px solid var(--line);width:84px;transition:opacity .15s}
+.mx thead th.corner{width:150px}
+.mx tbody th{text-align:start;font-family:var(--f-display);font-weight:600;white-space:nowrap;padding-inline:14px;position:sticky;inset-inline-start:0;background:var(--surface);z-index:1}
+.mx tbody th a{text-decoration:none;transition:opacity .15s}
+.mx tbody th a:hover{color:var(--accent)}
+.mx tbody tr+tr th,.mx tbody tr+tr td{border-top:1px solid var(--line)}
+.dot{display:inline-block;width:26px;height:26px;border-radius:5px;border:1px solid var(--line);vertical-align:middle;transition:opacity .15s}
+.dot.l2{background:var(--accent);border-color:var(--accent)}
+.dot.l1{background:var(--accent);border-color:var(--accent);opacity:.38}
+.mx td.off .dot{opacity:.15}
+.mx thead th.off{opacity:.35}
+.mx tbody th.off a{opacity:.4}
+.mx thead th:focus-visible{outline-offset:-2px}
+.leg{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 0;font-size:.8rem;color:var(--muted)}
+.leg span{display:inline-flex;align-items:center;gap:8px}
+.leg .dot{width:14px;height:14px;border-radius:3px}
+.mx-note{min-height:3.4em;margin:10px 0 0;font:400 .85rem/1.5 var(--f-body);color:var(--lapis)}
+
+/* skills */
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px 44px}
+.sk>div{min-width:0}
+.sk h3{color:var(--accent);margin:0 0 8px}
+.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px}
+.sk .note{color:var(--muted);font-size:.85rem;margin:8px 0 0}
+
+/* path */
+.path{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px)}
+@media (max-width:820px){.path{grid-template-columns:minmax(0,1fr)}}
+.path>div{min-width:0}
+.path h3{color:var(--accent);margin:0 0 6px}
+.entry{padding-block:14px;border-top:1px solid var(--line)}
+.entry strong{font-weight:600}
+.entry p{margin:.2em 0 0;color:var(--muted);font-size:.93rem}
+.edu{list-style:none;margin:0;padding:0;padding-inline-start:20px;border-inline-start:1px solid var(--line)}
+.edu li{position:relative}
+.edu li::before{content:"";position:absolute;inset-inline-start:-25px;top:1.15rem;width:9px;height:9px;background:var(--gold)}
+.edu li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding-block:12px;border-top:1px solid var(--line)}
+.edu .yr{font:500 .8rem var(--f-mono);color:var(--accent);padding-top:.2em}
+.vol{margin-top:30px}
+
+/* contact */
+.contact{background:var(--panel);color:var(--on-panel);border-top:0}
+.contact h2{color:var(--on-panel)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:820px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
+.contact-grid>div{min-width:0}
+.contact .lab{color:var(--accent-on)}
+.contact p{margin:.8em 0 0;color:#c3cdf0}
+.crow{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:12px;align-items:center;padding-block:13px;border-top:1px solid var(--panel-line)}
+.crow:last-child{border-bottom:1px solid var(--panel-line)}
+.crow .lab{margin:0}
+.val{font:400 .9rem/1.4 var(--f-mono);overflow-wrap:anywhere}
+.val a{color:var(--on-panel);text-decoration:none;border-bottom:1px solid var(--accent-on)}
+.cp{font:500 .72rem var(--f-mono);background:transparent;color:var(--on-panel);border:1px solid var(--panel-line);padding:4px 10px;border-radius:4px;cursor:pointer}
+.cp:hover{border-color:var(--accent-on)}
+.cp .ok{display:none}
+.cp.done .ok{display:inline}
+.cp.done .lbl{display:none}
+.foot{padding-block:26px;font:400 .75rem var(--f-mono);color:var(--muted);border-top:1px solid var(--line)}
+#app[data-lang="ar"] .foot{font-family:var(--f-body)}
+
+button.btn{cursor:pointer}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none;font:400 .72rem var(--f-mono)}
+.badges li{padding:4px 10px;border:1px solid var(--line);background:var(--surface);border-radius:4px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px}
+.fchip{font:500 .8rem var(--f-body);padding:6px 13px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:4px;cursor:pointer}
+.fchip:hover{border-color:var(--accent)}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fab{position:fixed;z-index:40;inset-inline-end:calc(16px + max(env(safe-area-inset-left,0px),env(safe-area-inset-right,0px)));bottom:calc(16px + env(safe-area-inset-bottom,0px));font:500 .88rem var(--f-body);background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:999px;padding:11px 18px;cursor:pointer;box-shadow:0 6px 24px rgba(13,24,56,.28)}
+.fab:hover{background:var(--accent);border-color:var(--accent)}
+.chat{position:fixed;z-index:41;inset-inline-end:calc(16px + max(env(safe-area-inset-left,0px),env(safe-area-inset-right,0px)));bottom:calc(72px + env(safe-area-inset-bottom,0px));width:min(400px,calc(100vw - 32px));height:min(580px,calc(100vh - 140px));height:min(580px,calc(100dvh - 140px));display:flex;flex-direction:column;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 40px rgba(13,24,56,.3);overflow:hidden}
+.chat-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.chat-h strong{display:block;font-family:var(--f-display);font-weight:700}
+.chat-sub{display:block;font-size:.76rem;line-height:1.4;color:var(--muted)}
+.chat-x{background:transparent;border:0;color:var(--muted);font-size:1.5rem;line-height:1;cursor:pointer;padding:0 4px}
+.chat-x:hover{color:var(--ink)}
+.log{flex:1;min-height:0;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:9px 12px;border-radius:8px;font-size:.92rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--line)}
+.msg.me{align-self:flex-end;background:var(--ink);color:var(--bg)}
+.msg.err{color:var(--muted);font-style:italic}
+.sugg{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.sugg button{font:400 .78rem var(--f-body);padding:5px 11px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;cursor:pointer}
+.sugg button:hover{border-color:var(--accent)}
+.cform{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+.cform input{flex:1;min-width:0;font:400 16px var(--f-body);padding:9px 10px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--ink)}
+.cform button{font:500 .85rem var(--f-body);padding:0 14px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:5px;cursor:pointer}
+.cform button:disabled{opacity:.5;cursor:default}
+
+/* ultimate pass */
+::selection{background:#4fe0d4;color:#0a1129}
+:root{--night:#0a1129;--night2:#101a3d;--night-line:#27356b;--night-ink:#f1f4ff;--night-muted:#aebbe0;--tur:#4fe0d4;--gld:#e6b64f}
+body::before{background:var(--night)}
+.top{background:var(--night);border-bottom:1px solid var(--night-line)}
+.brand{color:var(--night-ink)}
+.nav a{color:var(--night-muted);padding-block:5px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--night-ink)}
+.nav a.on{color:var(--night-ink);border-bottom-color:var(--tur)}
+.langbtn{color:var(--night-ink);border-color:var(--night-line)}
+.langbtn:hover{border-color:var(--tur)}
+.prog{position:fixed;inset-inline:0;top:calc(env(safe-area-inset-top,0px) + 57px);height:2px;z-index:19;background:var(--tur);transform-origin:0 50%;transform:scaleX(0)}
+#app[dir="rtl"] .prog{transform-origin:100% 50%}
+
+.hero{position:relative;overflow:hidden;background:var(--night);color:var(--night-ink);padding-block:clamp(56px,11vw,132px) clamp(40px,6vw,72px);--cell0:#15214a;--cell1:#25b3a9;--cell2:#f0c15a}
+.hero-bg{position:absolute;inset:0}
+.hero-bg canvas{display:block}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#0a1129 0%,rgba(10,17,41,.82) 40%,rgba(10,17,41,.12) 80%),linear-gradient(0deg,#0a1129 0%,rgba(10,17,41,0) 32%)}
+#app[dir="rtl"] .hero::after{background:linear-gradient(270deg,#0a1129 0%,rgba(10,17,41,.82) 40%,rgba(10,17,41,.12) 80%),linear-gradient(0deg,#0a1129 0%,rgba(10,17,41,0) 32%)}
+.hero-in{position:relative;z-index:1}
+.hero .eyebrow{color:var(--tur)}
+.name{font-size:clamp(3.2rem,12.5vw,10rem);line-height:.88;letter-spacing:-.045em;margin:.22em 0 .1em;white-space:nowrap;color:var(--night-ink)}
+.name .en::after,.name .ar::after{content:"";display:inline-block;width:.13em;height:.13em;background:var(--gld);margin-inline-start:.07em}
+.name .en>span,.name .ar>span{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.name .en>span+span,.name .ar>span+span{animation-delay:.09s}
+@keyframes rise{from{transform:translateY(.3em)}to{transform:none}}
+.hero .fullname{color:var(--night-muted)}
+.hero-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-top:clamp(26px,4vw,52px);align-items:start}
+.hero-cols>*{min-width:0}
+@media (max-width:900px){.hero-cols{grid-template-columns:minmax(0,1fr)}}
+.hero .thesis{color:#c9d6ff;font-size:clamp(1.55rem,3.6vw,2.6rem);line-height:1.15;max-width:22ch;margin:0}
+.hero .lede{color:var(--night-muted);margin:0}
+.hero .btn{border-color:#3a4a85}
+.hero .btn.p{background:var(--tur);color:#0a1129;border-color:var(--tur)}
+.hero .btn.p:hover{background:#fff;border-color:#fff;color:#0a1129}
+.hero .btn.s{color:var(--night-ink);background:transparent}
+.hero .btn.s:hover{border-color:var(--tur)}
+.hero .facts{color:var(--night-muted)}
+.hero .badges li{background:rgba(255,255,255,.04);border-color:var(--night-line);color:var(--night-ink)}
+.hero-cap{margin:clamp(30px,5vw,60px) 0 0;font:400 .72rem var(--f-mono);color:var(--night-muted)}
+#app[data-lang="ar"] .hero-cap{font-family:var(--f-body);font-size:.82rem}
+
+.tick{overflow:hidden;background:var(--night2);border-block:1px solid var(--night-line);color:var(--night-muted);font:400 .8rem var(--f-mono)}
+.tick-in{display:flex;width:max-content;animation:tk 80s linear infinite}
+.tick:hover .tick-in{animation-play-state:paused}
+.tick-in ul{display:flex;flex:none;gap:28px;margin:0;padding:12px 14px;list-style:none}
+.tick-in li::after{content:"";display:inline-block;width:6px;height:6px;background:var(--gld);margin-inline-start:28px}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tick-in{animation:none;width:auto}.tick-in ul{flex-wrap:wrap}.tick-in ul+ul{display:none}.name .en>span,.name .ar>span{animation:none}}
+
+.kicker::before{content:"";display:inline-block;width:30px;height:1px;background:currentColor;margin-inline-end:12px;vertical-align:middle}
+h2{font-size:clamp(2rem,5.6vw,3.7rem);line-height:1.04}
+.sec-h{max-width:78ch}
+.proj>div:first-child{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start}
+@media (max-width:820px){.proj>div:first-child{position:static}}
+.proj h3{font-size:clamp(2rem,4.2vw,3.1rem)}
+@keyframes pulse{0%{background:var(--surface);border-color:var(--line);color:var(--ink)}35%{background:var(--accent);border-color:var(--accent);color:var(--bg)}100%{background:var(--surface);border-color:var(--line);color:var(--ink)}}
+@keyframes pulse-end{0%{background:var(--surface);border-color:var(--accent);color:var(--accent)}35%{background:var(--accent);border-color:var(--accent);color:var(--bg)}100%{background:var(--surface);border-color:var(--accent);color:var(--accent)}}
+.proj:hover .flow .node,.proj:focus-within .flow .node{animation:pulse 1.1s ease both;animation-delay:calc(var(--d,0) * .14s)}
+.proj:hover .flow .node.end,.proj:focus-within .flow .node.end{animation-name:pulse-end}
+.flow>*:nth-child(1){--d:0}.flow>*:nth-child(2){--d:1}.flow>*:nth-child(3){--d:2}.flow>*:nth-child(4){--d:3}.flow>*:nth-child(5){--d:4}.flow>*:nth-child(6){--d:5}.flow>*:nth-child(7){--d:6}.flow>*:nth-child(8){--d:7}.flow>*:nth-child(9){--d:8}.flow>*:nth-child(10){--d:9}.flow>*:nth-child(11){--d:10}.flow>*:nth-child(12){--d:11}.flow>*:nth-child(13){--d:12}.flow>*:nth-child(14){--d:13}.flow>*:nth-child(15){--d:14}.flow>*:nth-child(16){--d:15}.flow>*:nth-child(17){--d:16}.flow>*:nth-child(18){--d:17}
+@media (prefers-reduced-motion:reduce){.proj:hover .flow .node,.proj:focus-within .flow .node{animation:none}}
+.sk>div{padding-top:16px;border-top:1px solid var(--line)}
+.sk li{transition:color .15s}
+.sk li:hover{color:var(--accent)}
+.cnt{margin-inline-start:8px;color:var(--muted);font-weight:400}
+.contact{background-color:var(--panel);background-image:linear-gradient(rgba(120,150,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.07) 1px,transparent 1px);background-size:44px 44px}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem)}
+.fab{background:var(--tur);color:#0a1129;border-color:var(--tur)}
+.fab:hover{background:#fff;border-color:#fff}
+
+/* robot launcher */
+.fab{width:64px;height:64px;padding:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#1d2f72,#0a1129);color:#f1f4ff;border:2px solid var(--tur);box-shadow:0 8px 28px rgba(10,17,41,.45),0 0 0 6px rgba(79,224,212,.14);animation:bob 3.6s ease-in-out infinite}
+.fab:hover{background:linear-gradient(145deg,#2a409b,#0a1129);border-color:#fff}
+.fab[aria-expanded="true"]{animation:none}
+.robot{width:42px;height:42px;overflow:visible}
+.robot .head{fill:#e8eeff}
+.robot .ear{fill:var(--tur)}
+.robot .face{fill:#0a1129}
+.robot .eyes circle{fill:var(--tur)}
+.robot .eyes{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.robot .ant{fill:var(--gld);transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-in-out infinite}
+.robot .mouth{fill:none;stroke:#0a1129;stroke-width:2.4;stroke-linecap:round}
+.fab-l{position:absolute;top:50%;transform:translateY(-50%);inset-inline-end:calc(100% + 12px);white-space:nowrap;background:var(--night);color:#f1f4ff;border:1px solid var(--night-line);padding:6px 13px;border-radius:999px;font:500 .82rem var(--f-body);opacity:0;pointer-events:none;transition:opacity .15s;animation:hint 7s ease 0s backwards}
+.fab:hover .fab-l,.fab:focus-visible .fab-l{opacity:1}
+.fab[aria-expanded="true"] .fab-l{display:none}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes ping{50%{transform:scale(1.5)}}
+@keyframes hint{0%,85%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.fab,.robot .eyes,.robot .ant,.fab-l{animation:none}}
+.chat{bottom:calc(92px + env(safe-area-inset-bottom,0px));height:min(580px,calc(100vh - 170px));height:min(580px,calc(100dvh - 170px))}
+
+/* chat panel polish */
+.chat{width:min(420px,calc(100vw - 24px));border-radius:20px;border:1px solid var(--line);box-shadow:0 18px 60px rgba(10,17,41,.4)}
+.chat-h{align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#17265e,#0a1129);border-bottom:1px solid var(--night-line)}
+.chat-av{flex:none;width:40px;height:40px;padding:4px;border-radius:50%;background:#0f1a44;border:1.5px solid var(--tur)}
+.chat-t{flex:1;min-width:0}
+.chat-h strong{color:#f1f4ff;font-size:1rem}
+.chat-sub{color:var(--night-muted)}
+.chat-x{flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#f1f4ff;background:rgba(255,255,255,.08);font-size:1.3rem;padding:0}
+.chat-x:hover{background:rgba(255,255,255,.18);color:#fff}
+.log{padding:16px;gap:12px;background:var(--bg);scroll-behavior:smooth;align-items:flex-start}
+.msg{max-width:86%;padding:10px 14px;border-radius:16px;font-size:.93rem;line-height:1.6}
+.msg.bot{background:var(--surface);border:1px solid var(--line);border-end-start-radius:4px}
+.msg.me{background:var(--tur);color:#0a1129;border-end-end-radius:4px;align-self:flex-end}
+.msg.err{border-style:dashed}
+.msg.typing{min-width:58px;min-height:40px}
+.msg.typing::before{content:"\2022 \2022 \2022";letter-spacing:.18em;color:var(--accent);font-size:1.2rem;line-height:1;animation:dots 1.2s ease-in-out infinite}
+@keyframes dots{0%,100%{opacity:.3}50%{opacity:1}}
+.sugg{padding:10px 14px 12px;background:var(--bg);border-top:1px solid var(--line)}
+.sugg button{padding:6px 12px;border-radius:999px;background:var(--surface)}
+.cform{padding:12px 14px;background:var(--surface);align-items:center}
+.cform input{padding:11px 16px;border-radius:999px;background:var(--bg)}
+.cform input:focus-visible{outline-offset:1px}
+.cform button{height:42px;padding:0 18px;border-radius:999px;background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.cform button:hover:not(:disabled){filter:brightness(1.1)}
+@media (max-width:560px){
+  .chat{inset-inline-start:12px;inset-inline-end:12px;width:auto;bottom:calc(88px + env(safe-area-inset-bottom,0px));height:min(72vh,calc(100vh - 150px));height:min(72dvh,calc(100dvh - 150px))}
+}
+@media (prefers-reduced-motion:reduce){.msg.typing::before{animation:none}.log{scroll-behavior:auto}}
+
+/* luminous pass: light hero, star motif, straight talk */
+:root{
+  --star:polygon(50% 0%,62% 24%,85% 15%,76% 38%,100% 50%,76% 62%,85% 85%,62% 76%,50% 100%,38% 76%,15% 85%,24% 62%,0% 50%,24% 38%,15% 15%,38% 24%);
+  --hero-bg:#f8faff; --hero-glow:rgba(240,193,90,.42); --hero-glow2:rgba(79,200,190,.18);
+  --hcell0:#e2e9fa; --hcell1:#2db5ab; --hcell2:#e3a92c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--hero-bg:#0a1129;--hero-glow:rgba(240,193,90,.12);--hero-glow2:rgba(79,224,212,.14);--hcell0:#15214a;--hcell1:#25b3a9;--hcell2:#f0c15a}
+}
+:root[data-theme="dark"]{--hero-bg:#0a1129;--hero-glow:rgba(240,193,90,.12);--hero-glow2:rgba(79,224,212,.14);--hcell0:#15214a;--hcell1:#25b3a9;--hcell2:#f0c15a}
+
+body::before{background:var(--bg)}
+.top{background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{color:var(--ink)}
+.nav a{color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.langbtn{color:var(--ink);border-color:var(--line)}
+.langbtn:hover{border-color:var(--accent)}
+.prog{background:var(--accent)}
+::selection{background:var(--accent);color:var(--bg)}
+
+.hero{background:radial-gradient(70% 90% at 88% -10%,var(--hero-glow),transparent 62%),radial-gradient(50% 70% at 0% 100%,var(--hero-glow2),transparent 70%),var(--hero-bg);color:var(--ink);--cell0:var(--hcell0);--cell1:var(--hcell1);--cell2:var(--hcell2)}
+.hero::after{background:linear-gradient(90deg,var(--hero-bg) 0%,color-mix(in srgb,var(--hero-bg) 78%,transparent) 42%,transparent 88%),linear-gradient(0deg,var(--hero-bg) 0%,transparent 30%)}
+#app[dir="rtl"] .hero::after{background:linear-gradient(270deg,var(--hero-bg) 0%,color-mix(in srgb,var(--hero-bg) 78%,transparent) 42%,transparent 88%),linear-gradient(0deg,var(--hero-bg) 0%,transparent 30%)}
+.hero .eyebrow{color:var(--accent)}
+.name{color:var(--ink)}
+.hero .fullname{color:var(--muted)}
+.hero .thesis{color:var(--lapis)}
+.hero .lede{color:var(--muted)}
+.hero .btn{border-color:var(--line);color:var(--ink)}
+.hero .btn.p{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero .btn.p:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.hero .btn.s:hover{border-color:var(--accent)}
+.hero .facts{color:var(--muted)}
+.hero .badges li{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.hero-cap{color:var(--muted)}
+.tick{background:var(--surface);border-block:1px solid var(--line);color:var(--muted)}
+
+.name .en::after,.name .ar::after{clip-path:var(--star);width:.17em;height:.17em;background:var(--gold)}
+.facts li::before{clip-path:var(--star);width:11px;height:11px;background:var(--gold)}
+.tick-in li::after{clip-path:var(--star);width:10px;height:10px;background:var(--gold)}
+.edu li::before{clip-path:var(--star);width:13px;height:13px;top:1rem;inset-inline-start:-27px;background:var(--gold)}
+
+.hon{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 48px}
+.hon>div{min-width:0;padding-block:18px 22px;border-top:1px solid var(--line)}
+.hon h3{color:var(--accent);margin:0 0 8px}
+.hon p{margin:0;color:var(--ink)}
+
+.chat-note{margin:0;padding:8px 14px 12px;font-size:.72rem;line-height:1.4;color:var(--muted);background:var(--surface);text-align:center}
+
+/* rendered replies */
+.msg.bot{white-space:normal}
+.msg.bot p{margin:0}
+.msg.bot p+p,.msg.bot p+ul,.msg.bot p+ol,.msg.bot ul+p,.msg.bot ol+p{margin-top:.6em}
+.msg.bot ul,.msg.bot ol{margin:0;padding-inline-start:1.3em}
+.msg.bot li+li{margin-top:.25em}
+.msg.bot strong{font-weight:600}
+.msg.bot code{font:400 .85em var(--f-mono);background:var(--bg);border:1px solid var(--line);padding:0 4px;border-radius:3px}
+.msg.me{white-space:pre-wrap}
+
+/* bubble width fix */
+.msg{overflow-wrap:break-word;word-break:normal;min-width:0;max-width:88%;flex:none}
+
+/* features: theme button, fit check, chat reset */
+.themebtn{display:grid;place-items:center;width:34px;height:30px;padding:0}
+.chat-h .chat-x{margin-inline-start:0}
+.fit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,4vw,56px);align-items:start}
+.fit>div{min-width:0}
+@media (max-width:820px){.fit{grid-template-columns:minmax(0,1fr)}}
+.fit label{display:block;margin-bottom:8px;color:var(--accent)}
+.fit textarea{display:block;width:100%;min-height:220px;resize:vertical;font:400 16px/1.55 var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.fit textarea:disabled{opacity:.6}
+.fit-act{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.fit-count{margin-inline-start:auto;font:400 .72rem var(--f-mono);color:var(--muted)}
+.fit-out{min-height:120px;border-top:1px solid var(--line);padding-top:16px}
+.fit-note{margin:0;color:var(--muted)}
+.fit-note.err{font-style:italic}
+.fit-pill{display:inline-block;margin:0 0 12px;padding:4px 12px;border-radius:999px;font:600 .82rem var(--f-body);border:1px solid currentColor}
+.fit-pill.strong{color:var(--accent)}
+.fit-pill.partial{color:var(--gold)}
+.fit-pill.weak{color:var(--muted)}
+.fit-sum{margin:0 0 18px}
+.fit-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px 28px}
+.fit-col h3{margin:0 0 8px}
+.fit-col.good h3{color:var(--accent)}
+.fit-col.gap h3{color:var(--gold)}
+.fit-col ul{margin:0;padding-inline-start:1.2em;display:grid;gap:6px;font-size:.93rem}
+
+/* display polish */
+.hero .btn.s{color:var(--ink);background:transparent;border-color:var(--line)}
+.hero .btn.s:hover{border-color:var(--accent);color:var(--ink)}
+.hero::after{background:linear-gradient(90deg,var(--hero-bg) 0%,color-mix(in srgb,var(--hero-bg) 80%,transparent) 55%,color-mix(in srgb,var(--hero-bg) 40%,transparent) 100%),linear-gradient(0deg,var(--hero-bg) 0%,transparent 30%)}
+#app[dir="rtl"] .hero::after{background:linear-gradient(270deg,var(--hero-bg) 0%,color-mix(in srgb,var(--hero-bg) 80%,transparent) 55%,color-mix(in srgb,var(--hero-bg) 40%,transparent) 100%),linear-gradient(0deg,var(--hero-bg) 0%,transparent 30%)}
+.hero{padding-block:clamp(44px,8vw,104px) clamp(28px,4vw,48px)}
+.hero-cap{margin-top:clamp(22px,3vw,38px)}
+.sec{padding-block:clamp(36px,5.5vw,68px)}
+.sec-h{margin-bottom:clamp(20px,3vw,32px)}
+.contact .lab{margin:0 0 14px}
+.contact p:not(.lab){margin:.9em 0 0}
+.foot{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.mx-note{min-height:2.6em}
+@media (max-width:760px){
+  .top .wrap{flex-wrap:wrap;row-gap:0;min-height:0;padding-top:8px}
+  .top .brand{padding-block:6px}
+  .nav{display:flex;order:3;flex:0 0 100%;gap:20px;overflow-x:auto;white-space:nowrap;padding:2px 0 8px;scrollbar-width:none;font-size:.86rem}
+  .nav::-webkit-scrollbar{display:none}
+  .prog{top:env(safe-area-inset-top,0px)}
+  html{scroll-padding-top:108px}
+  .fab-l{display:none}
+  .hero .cta .btn{flex:1 1 auto;text-align:center}
+}
+
+/* reply format */
+.msg.bot .plink{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msg.bot .plink:hover{color:var(--lapis)}
+.msg.bot .mailcp{font:400 .86em var(--f-mono);background:var(--bg);color:var(--ink);border:1px dashed var(--accent);border-radius:4px;padding:0 6px;cursor:pointer}
+.msg.bot .mailcp:hover{background:var(--cell0)}
+.msg.bot .mcopy{display:block;margin-top:10px;font:500 .68rem var(--f-mono);letter-spacing:.04em;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 9px;cursor:pointer}
+.msg.bot .mcopy:hover{color:var(--ink);border-color:var(--accent)}
+.msg.bot p:first-child{font-weight:500}
+.msg.bot li::marker{color:var(--accent)}
+
+/* skills search */
+.sk-find{display:flex;align-items:center;gap:12px;margin:0 0 26px;flex-wrap:wrap}
+.sk-find input{flex:1 1 280px;max-width:460px;min-width:0;font:400 16px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 18px}
+.sk-find input:focus-visible{outline-offset:1px}
+.sk-find .fit-count{margin-inline-start:0}
+.sk li.hit{color:var(--accent);font-weight:600}
+.sk li.dim{opacity:.28}
+.sk-none{grid-column:1/-1;margin:0;color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="app" data-lang="en" dir="ltr" lang="en">
+
+<div id="prog" class="prog"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Ibrahim Rifai</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#projects"><span class="en">Projects</span><span class="ar" lang="ar">المشاريع</span></a>
+      <a href="#map"><span class="en">Capabilities</span><span class="ar" lang="ar">القدرات</span></a>
+      <a href="#skills"><span class="en">Skills</span><span class="ar" lang="ar">المهارات</span></a>
+      <a href="#path"><span class="en">Path</span><span class="ar" lang="ar">المسار</span></a>
+      <a href="#honest"><span class="en">Straight talk</span><span class="ar" lang="ar">بصراحة</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="ar" lang="ar">تواصل</span></a>
+    </nav>
+    <button id="themebtn" class="langbtn themebtn" type="button" aria-label="Toggle light and dark theme"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    <button id="langbtn" class="langbtn" type="button" aria-label="التبديل إلى العربية"><span class="en" lang="ar">العربية</span><span class="ar" lang="en">English</span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" id="hero">
+  <div class="hero-bg"><canvas id="attn" aria-hidden="true"></canvas></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow lab"><span class="en">AI &amp; Data Scientist · Cairo · Open to remote</span><span class="ar" lang="ar">عالِم بيانات وذكاء اصطناعي · القاهرة · متاح للعمل عن بُعد</span></p>
+    <h1 class="name"><span class="en"><span>Ibrahim</span> <span>Rifai</span></span><span class="ar" lang="ar"><span>إبراهيم</span> <span>رفاعي</span></span></h1>
+    <p class="fullname"><span class="en">Ibrahim Atta Abdulmongid Rifai</span><span class="ar" lang="ar">إبراهيم عطا عبد المنجد رفاعي</span></p>
+    <div class="hero-cols">
+      <p class="thesis"><span class="en">I look for the hidden pattern that points a system the right way when conditions oscillate.</span><span class="ar" lang="ar">أبحث عن النمط الخفي الذي يوجّه النظام في الاتجاه الصحيح حين تتذبذب الظروف.</span></p>
+      <div>
+        <p class="lede"><span class="en">I build AI that senses intent from context: attention over space and time, retrieval that corrects its own queries, and models that read images, sign language and satellite data. I tune for lower latency and fewer tokens, check whether a workload is compute-bound or bandwidth-bound before benchmarking it, and look for bottlenecks early, so the conclusions I give a business hold up.</span><span class="ar" lang="ar">أبني أنظمة ذكاء اصطناعي تستشعر النية من السياق: انتباه عبر المكان والزمن، واسترجاع يصحّح استعلاماته بنفسه، ونماذج تقرأ الصور ولغة الإشارة وبيانات الأقمار الصناعية. أعمل على تقليل زمن الاستجابة وعدد الرموز (tokens)، وأتحقق قبل القياس هل العبء محكوم بالحوسبة أم بعرض نطاق الذاكرة، وأبحث عن الاختناقات مبكراً، حتى تصمد الخلاصات التي أقدّمها للأعمال.</span></p>
+        <div class="cta">
+          <a class="btn p" href="#projects"><span class="en">See the projects</span><span class="ar" lang="ar">شاهد المشاريع</span></a>
+          <a class="btn s" href="https://github.com/ibrahim-rifai" target="_blank" rel="noopener">GitHub ↗</a>
+          <button id="askhero" class="btn s" type="button" hidden><span class="en">Ask my assistant</span><span class="ar" lang="ar">اسأل المساعد</span></button>
+          <button id="dlres" class="btn s" type="button" hidden><span class="en">Download résumé (.md)</span><span class="ar" lang="ar">تحميل السيرة (.md)</span></button>
+        </div>
+        <ul class="facts">
+          <li><span class="en">5 main projects</span><span class="ar" lang="ar">٥ مشاريع رئيسية</span></li>
+          <li><span class="en">Arabic · English · Arabizi NLP</span><span class="ar" lang="ar">معالجة لغة: عربية · إنجليزية · عربيزي</span></li>
+          <li><span class="en">AI &amp; data internship, Ministry of Culture</span><span class="ar" lang="ar">تدريب في الذكاء الاصطناعي والبيانات، وزارة الثقافة</span></li>
+        </ul>
+        <ul class="badges" dir="ltr" aria-label="Credentials"><li>PL-300 · Power BI Data Analyst</li><li>DP-900 · Azure cloud</li><li>ML Specialization · DeepLearning.AI &amp; Stanford</li><li>Google Advanced Data Analytics</li></ul>
+      </div>
+    </div>
+    <p class="hero-cap"><span dir="ltr">softmax(Q·Kᵀ / √d)</span> · <span class="en">Move the pointer to set the query.</span><span class="ar" lang="ar">حرّك المؤشر لتحديد الاستعلام.</span></p>
+  </div>
+</section>
+<div class="tick" dir="ltr" aria-hidden="true"><div class="tick-in"><ul><li>RAG</li><li>LangChain</li><li>PyTorch</li><li>TensorFlow</li><li>FastAPI</li><li>ChromaDB</li><li>BM25</li><li>Transformers</li><li>MediaPipe</li><li>Power BI</li><li>Next.js</li><li>Docker</li><li>Kubernetes</li><li>Azure</li><li>LangSmith</li><li>CrewAI</li><li>n8n</li><li>Terraform</li><li>spaCy</li><li>Hugging Face</li><li>SQL</li><li>ArcGIS</li></ul><ul><li>RAG</li><li>LangChain</li><li>PyTorch</li><li>TensorFlow</li><li>FastAPI</li><li>ChromaDB</li><li>BM25</li><li>Transformers</li><li>MediaPipe</li><li>Power BI</li><li>Next.js</li><li>Docker</li><li>Kubernetes</li><li>Azure</li><li>LangSmith</li><li>CrewAI</li><li>n8n</li><li>Terraform</li><li>spaCy</li><li>Hugging Face</li><li>SQL</li><li>ArcGIS</li></ul></div></div>
+
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Selected projects</span><span class="ar" lang="ar">مشاريع مختارة</span></p>
+      <h2><span class="en">Five systems that turn a signal into an action</span><span class="ar" lang="ar">خمسة أنظمة تحوّل الإشارة إلى إجراء</span></h2>
+      <p><span class="en">Each project takes a raw signal, finds the structure in it, and turns it into something a person can act on.</span><span class="ar" lang="ar">كل مشروع يبدأ بإشارة خام، ويكشف البنية داخلها، ويحوّلها إلى شيء يستطيع الإنسان أن يتصرّف بناءً عليه.</span></p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="fchip" type="button" data-f="all" aria-pressed="true"><span class="en">All</span><span class="ar" lang="ar">الكل</span></button>
+      <button class="fchip" type="button" data-f="lang" aria-pressed="false"><span class="en">Language &amp; retrieval</span><span class="ar" lang="ar">اللغة والاسترجاع</span></button>
+      <button class="fchip" type="button" data-f="vision" aria-pressed="false"><span class="en">Vision</span><span class="ar" lang="ar">الرؤية الحاسوبية</span></button>
+      <button class="fchip" type="button" data-f="rag" aria-pressed="false"><span class="en">RAG &amp; agents</span><span class="ar" lang="ar">RAG والوكلاء</span></button>
+      <button class="fchip" type="button" data-f="geo" aria-pressed="false"><span class="en">Geospatial &amp; multimodal</span><span class="ar" lang="ar">مكاني ومتعدد الوسائط</span></button>
+      <button class="fchip" type="button" data-f="bi" aria-pressed="false"><span class="en">BI &amp; analytics</span><span class="ar" lang="ar">ذكاء الأعمال والتحليل</span></button>
+    </div>
+
+    <div class="plist">
+
+      <article class="proj first" id="p-conversacard" data-tags="lang">
+        <div>
+          <h3>ConversaCard</h3>
+          <p class="tag"><span class="en">Trilingual AI Shopping Assistant · intent attention · Spinneys e-commerce</span><span class="ar" lang="ar">مساعد تسوّق ذكي ثلاثي اللغات · انتباه للنية · تجارة Spinneys الإلكترونية</span></p>
+          <div class="links"><a href="https://drive.google.com/file/d/1r0I8N-E9ictIPBjydNZO7ooqH0QhXcsu/view?usp=sharing" target="_blank" rel="noopener"><span class="en">Demo ↗</span><span class="ar" lang="ar">العرض ↗</span></a></div>
+        </div>
+        <div>
+          <ul class="pts">
+            <li><span class="en">Processes Arabic, English and Arabizi in conversation for intent recognition, query refinement and context-aware multi-turn dialogue.</span><span class="ar" lang="ar">معالجة محادثية للعربية والإنجليزية والعربيزي (Arabizi) للتعرّف على النية، وتحسين الاستعلام، وفهم السياق عبر عدة أدوار في الحوار.</span></li>
+            <li><span class="en">Engineered MySQL to canonical to Parquet data pipelines feeding ChromaDB for embeddings and hybrid retrieval: semantic search, BM25 and fuzzy matching for correction.</span><span class="ar" lang="ar">بناء مسارات بيانات من MySQL إلى الصيغة القياسية (canonical) ثم Parquet، تغذّي ChromaDB لتضمينات الاسترجاع الهجين: بحث دلالي وBM25 ومطابقة تقريبية (fuzzy) للتصحيح.</span></li>
+            <li><span class="en">Built recommendations, product comparisons and Paymob payment with Python, FastAPI and Next.js.</span><span class="ar" lang="ar">تنفيذ التوصيات ومقارنة المنتجات والدفع عبر Paymob باستخدام Python وFastAPI وNext.js.</span></li>
+          </ul>
+          <div class="flows" dir="ltr">
+            <div class="flow"><span class="fl">data</span><span class="node">MySQL</span><span class="arr">→</span><span class="node">canonical</span><span class="arr">→</span><span class="node">Parquet</span><span class="arr">→</span><span class="node end">ChromaDB</span></div>
+            <div class="flow"><span class="fl">query</span><span class="node">Ar · En · Arabizi</span><span class="arr">→</span><span class="node">intent</span><span class="arr">→</span><span class="node">refine</span><span class="arr">→</span><span class="node">semantic + BM25 + fuzzy</span><span class="arr">→</span><span class="node end">recommend · compare · pay</span></div>
+          </div>
+          <ul class="chips" dir="ltr"><li>Python</li><li>FastAPI</li><li>Next.js</li><li>MySQL</li><li>Parquet</li><li>ChromaDB</li><li>BM25</li><li>Fuzzy matching</li><li>Paymob</li></ul>
+        </div>
+      </article>
+
+      <article class="proj" id="p-kak" data-tags="vision rag bi">
+        <div>
+          <h3>KAK</h3>
+          <p class="tag"><span class="en">Poultry Disease Classifier · Digilians Capstone</span><span class="ar" lang="ar">مصنِّف أمراض الدواجن · مشروع التخرج في Digilians</span></p>
+          <div class="links"><a href="https://drive.google.com/file/d/1pKZE7dHA2OXb3xSIgeqYrMOzEc757ay6/view?usp=sharing" target="_blank" rel="noopener"><span class="en">Demo ↗</span><span class="ar" lang="ar">العرض ↗</span></a></div>
+        </div>
+        <div>
+          <ul class="pts">
+            <li><span class="en">Two-stage image classification pipeline using EfficientNet and MobileNet with TensorFlow for poultry disease detection.</span><span class="ar" lang="ar">خط تصنيف صور من مرحلتين باستخدام EfficientNet وMobileNet مع TensorFlow لاكتشاف أمراض الدواجن.</span></li>
+            <li><span class="en">Integrated RAG for disease-related Q&amp;A and deployed the system with FastAPI and React.</span><span class="ar" lang="ar">دمج RAG للإجابة عن الأسئلة المتعلقة بالأمراض، ونشر النظام باستخدام FastAPI وReact.</span></li>
+            <li><span class="en">Built an interactive Power BI dashboard with DAX, data modeling and slicers for performance analysis, and row-level security (RLS).</span><span class="ar" lang="ar">لوحة Power BI تفاعلية باستخدام DAX ونمذجة البيانات ومقسّمات (slicers) لتحليل الأداء، مع أمان على مستوى الصفوف (RLS).</span></li>
+          </ul>
+          <div class="flows" dir="ltr">
+            <div class="flow"><span class="fl">vision</span><span class="node">poultry image</span><span class="arr">→</span><span class="node">stage 1</span><span class="arr">→</span><span class="node">stage 2</span><span class="arr">→</span><span class="node">disease detected</span><span class="arr">→</span><span class="node end">RAG Q&amp;A</span></div>
+            <div class="flow"><span class="fl">bi</span><span class="node">data model</span><span class="arr">→</span><span class="node">DAX</span><span class="arr">→</span><span class="node">slicers</span><span class="arr">→</span><span class="node end">dashboard (RLS)</span></div>
+          </div>
+          <ul class="chips" dir="ltr"><li>TensorFlow</li><li>EfficientNet</li><li>MobileNet</li><li>RAG</li><li>FastAPI</li><li>React</li><li>Power BI</li><li>DAX</li><li>RLS</li></ul>
+        </div>
+      </article>
+
+      <article class="proj" id="p-motl2l2" data-tags="vision">
+        <div>
+          <h3>MOTL2L2</h3>
+          <p class="tag"><span class="en">Arabic Sign Language AI Translator · CNN and LSTM</span><span class="ar" lang="ar">مترجم ذكي للغة الإشارة العربية · CNN وLSTM</span></p>
+          <div class="links"><a href="https://drive.google.com/file/d/1ZXgGLS0e85DMVXV5vuPRjnh2vxjF6doy/view?usp=sharing" target="_blank" rel="noopener"><span class="en">Demo ↗</span><span class="ar" lang="ar">العرض ↗</span></a></div>
+        </div>
+        <div>
+          <ul class="pts">
+            <li><span class="en">Extracted hand and body landmarks with MediaPipe and engineered sequence features for sign classification.</span><span class="ar" lang="ar">استخراج معالم اليدين والجسم باستخدام MediaPipe وهندسة ميزات تسلسلية لتصنيف الإشارات.</span></li>
+            <li><span class="en">Calculated spatial distances between pose landmarks to improve the quality of gesture-sequence features.</span><span class="ar" lang="ar">حساب المسافات المكانية بين معالم الوضعية لتحسين جودة ميزات تسلسل الحركات.</span></li>
+          </ul>
+          <div class="flows" dir="ltr">
+            <div class="flow"><span class="fl">signal</span><span class="node">signer</span><span class="arr">→</span><span class="node">MediaPipe landmarks</span><span class="arr">→</span><span class="node">pose distances</span><span class="arr">→</span><span class="node">sequence features</span><span class="arr">→</span><span class="node">CNN + LSTM</span><span class="arr">→</span><span class="node end">translation</span></div>
+          </div>
+          <ul class="chips" dir="ltr"><li>MediaPipe</li><li>CNN</li><li>LSTM</li><li>Landmark features</li></ul>
+        </div>
+      </article>
+
+      <article class="proj" id="p-kadstar" data-tags="lang rag">
+        <div>
+          <h3>KADSTAR</h3>
+          <p class="tag"><span class="en">Legal RAG Knowledge Assistant · LLM / RAG</span><span class="ar" lang="ar">مساعد معرفي قانوني قائم على RAG · LLM / RAG</span></p>
+        </div>
+        <div>
+          <ul class="pts">
+            <li><span class="en">Built a RAG pipeline with MiniLM embeddings, BM25 lexical retrieval, semantic search, Chroma and LangChain for legal question answering.</span><span class="ar" lang="ar">بناء خط RAG باستخدام تضمينات MiniLM واسترجاع معجمي BM25 وبحث دلالي وChroma وLangChain للإجابة عن الأسئلة القانونية.</span></li>
+            <li><span class="en">Served the system through FastAPI with a Streamlit interface.</span><span class="ar" lang="ar">تقديم النظام عبر FastAPI مع واجهة Streamlit.</span></li>
+          </ul>
+          <div class="flows" dir="ltr">
+            <div class="flow"><span class="fl">rag</span><span class="node">legal question</span><span class="arr">→</span><span class="node">MiniLM + BM25</span><span class="arr">→</span><span class="node">Chroma · LangChain</span><span class="arr">→</span><span class="node end">answer via FastAPI · Streamlit</span></div>
+          </div>
+          <ul class="chips" dir="ltr"><li>MiniLM</li><li>BM25</li><li>Chroma</li><li>LangChain</li><li>FastAPI</li><li>Streamlit</li></ul>
+        </div>
+      </article>
+
+      <article class="proj" id="p-genusonic" data-tags="rag geo">
+        <div>
+          <h3>GenuSonic</h3>
+          <p class="tag"><span class="en">Macro-to-Micro Multimodal Geospatial Analytics</span><span class="ar" lang="ar">تحليلات جغرافية مكانية متعددة الوسائط من الكلي إلى الجزئي</span></p>
+          <div class="links"><a href="https://drive.google.com/file/d/13WDS5DjxYdms1hmcTRlS1dYtavX260Ah/view?usp=sharing" target="_blank" rel="noopener"><span class="en">Demo ↗</span><span class="ar" lang="ar">العرض ↗</span></a></div>
+        </div>
+        <div>
+          <ul class="pts">
+            <li><span class="en">Developed AI workflows integrating satellite, drone and sensor data across spatial scales to localize carbon estimation.</span><span class="ar" lang="ar">تطوير مسارات عمل ذكاء اصطناعي تدمج بيانات الأقمار الصناعية والطائرات المسيّرة والحسّاسات عبر مقاييس مكانية مختلفة لتحديد موضع تقدير الكربون.</span></li>
+            <li><span class="en">Fused spatial, spectral, temporal and numerical modalities for unified geospatial intelligence using cross attention.</span><span class="ar" lang="ar">دمج الأبعاد المكانية والطيفية والزمنية والرقمية في ذكاء جغرافي مكاني موحّد باستخدام الانتباه المتقاطع (cross attention).</span></li>
+            <li><span class="en">Integrated AI models, RAG, intelligent agents and robotics to turn multimodal insights into automated field actions.</span><span class="ar" lang="ar">دمج نماذج الذكاء الاصطناعي وRAG والوكلاء الأذكياء والروبوتات لتحويل الرؤى متعددة الوسائط إلى إجراءات ميدانية آلية.</span></li>
+          </ul>
+          <div class="flows" dir="ltr">
+            <div class="flow"><span class="fl">scales</span><span class="node">satellite · drone · sensor</span><span class="arr">→</span><span class="node">spatial · spectral · temporal · numerical</span><span class="arr">→</span><span class="node">cross attention</span><span class="arr">→</span><span class="node">localize carbon estimation</span></div>
+            <div class="flow"><span class="fl">action</span><span class="node">insight</span><span class="arr">→</span><span class="node">RAG · agents · robotics</span><span class="arr">→</span><span class="node end">field action</span></div>
+          </div>
+          <ul class="chips" dir="ltr"><li>Cross attention</li><li>Satellite</li><li>Drone</li><li>Sensors</li><li>RAG</li><li>Agents</li><li>Robotics</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="map">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Capabilities</span><span class="ar" lang="ar">القدرات</span></p>
+      <h2><span class="en">Where each project leans</span><span class="ar" lang="ar">أين يعتمد كل مشروع</span></h2>
+      <p><span class="en">Rows are projects, columns are capability areas, like a small cross-attention map. Hover or focus a row or a column to read it. Select a project name to jump to it.</span><span class="ar" lang="ar">الصفوف مشاريع والأعمدة مجالات قدرات، كخريطة انتباه متقاطع صغيرة. مرّر المؤشر أو ركّز على صف أو عمود لقراءته. اختر اسم مشروع للانتقال إليه.</span></p>
+    </div>
+    <div class="mx-scroll"><table class="mx" id="mx"><thead><tr><th class="corner"></th><th scope="col" data-c="0" tabindex="0"><span class="en">Attention &amp; intent</span><span class="ar">الانتباه والنية</span></th><th scope="col" data-c="1" tabindex="0"><span class="en">Language &amp; retrieval</span><span class="ar">اللغة والاسترجاع</span></th><th scope="col" data-c="2" tabindex="0"><span class="en">Vision</span><span class="ar">الرؤية الحاسوبية</span></th><th scope="col" data-c="3" tabindex="0"><span class="en">Sequence models</span><span class="ar">نماذج التسلسل</span></th><th scope="col" data-c="4" tabindex="0"><span class="en">RAG &amp; agents</span><span class="ar">RAG والوكلاء</span></th><th scope="col" data-c="5" tabindex="0"><span class="en">Multimodal &amp; geospatial</span><span class="ar">متعدد الوسائط ومكاني</span></th><th scope="col" data-c="6" tabindex="0"><span class="en">Data engineering</span><span class="ar">هندسة البيانات</span></th><th scope="col" data-c="7" tabindex="0"><span class="en">BI &amp; analytics</span><span class="ar">ذكاء الأعمال والتحليل</span></th><th scope="col" data-c="8" tabindex="0"><span class="en">Apps &amp; delivery</span><span class="ar">التطبيقات والنشر</span></th></tr></thead><tbody><tr data-r="0"><th scope="row" data-r="0"><a href="#p-conversacard">ConversaCard</a></th><td data-r="0" data-c="0"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="0" data-c="1"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="0" data-c="2"><span class="dot l0"></span></td><td data-r="0" data-c="3"><span class="dot l0"></span></td><td data-r="0" data-c="4"><span class="dot l0"></span></td><td data-r="0" data-c="5"><span class="dot l0"></span></td><td data-r="0" data-c="6"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="0" data-c="7"><span class="dot l0"></span></td><td data-r="0" data-c="8"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td></tr><tr data-r="1"><th scope="row" data-r="1"><a href="#p-kak">KAK</a></th><td data-r="1" data-c="0"><span class="dot l0"></span></td><td data-r="1" data-c="1"><span class="dot l0"></span></td><td data-r="1" data-c="2"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="1" data-c="3"><span class="dot l0"></span></td><td data-r="1" data-c="4"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="1" data-c="5"><span class="dot l0"></span></td><td data-r="1" data-c="6"><span class="dot l0"></span></td><td data-r="1" data-c="7"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="1" data-c="8"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td></tr><tr data-r="2"><th scope="row" data-r="2"><a href="#p-motl2l2">MOTL2L2</a></th><td data-r="2" data-c="0"><span class="dot l0"></span></td><td data-r="2" data-c="1"><span class="dot l0"></span></td><td data-r="2" data-c="2"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="2" data-c="3"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="2" data-c="4"><span class="dot l0"></span></td><td data-r="2" data-c="5"><span class="dot l0"></span></td><td data-r="2" data-c="6"><span class="dot l0"></span></td><td data-r="2" data-c="7"><span class="dot l0"></span></td><td data-r="2" data-c="8"><span class="dot l0"></span></td></tr><tr data-r="3"><th scope="row" data-r="3"><a href="#p-kadstar">KADSTAR</a></th><td data-r="3" data-c="0"><span class="dot l0"></span></td><td data-r="3" data-c="1"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="3" data-c="2"><span class="dot l0"></span></td><td data-r="3" data-c="3"><span class="dot l0"></span></td><td data-r="3" data-c="4"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="3" data-c="5"><span class="dot l0"></span></td><td data-r="3" data-c="6"><span class="dot l0"></span></td><td data-r="3" data-c="7"><span class="dot l0"></span></td><td data-r="3" data-c="8"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td></tr><tr data-r="4"><th scope="row" data-r="4"><a href="#p-genusonic">GenuSonic</a></th><td data-r="4" data-c="0"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="4" data-c="1"><span class="dot l0"></span></td><td data-r="4" data-c="2"><span class="dot l1"><span class="sr"><span class="en">partial</span><span class="ar">جزئي</span></span></span></td><td data-r="4" data-c="3"><span class="dot l1"><span class="sr"><span class="en">partial</span><span class="ar">جزئي</span></span></span></td><td data-r="4" data-c="4"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="4" data-c="5"><span class="dot l2"><span class="sr"><span class="en">primary focus</span><span class="ar">تركيز أساسي</span></span></span></td><td data-r="4" data-c="6"><span class="dot l1"><span class="sr"><span class="en">partial</span><span class="ar">جزئي</span></span></span></td><td data-r="4" data-c="7"><span class="dot l0"></span></td><td data-r="4" data-c="8"><span class="dot l0"></span></td></tr></tbody></table></div>
+    <div class="leg"><span><i class="dot l2"></i><span class="en">Primary focus</span><span class="ar" lang="ar">تركيز أساسي</span></span><span><i class="dot l1"></i><span class="en">Partial</span><span class="ar" lang="ar">جزئي</span></span><span><i class="dot"></i><span class="en">Not a focus</span><span class="ar" lang="ar">ليس محور التركيز</span></span></div>
+    <p class="mx-note" id="mxnote" aria-live="polite"><span class="en">Point at a row or a column.</span><span class="ar" lang="ar">أشِر إلى صف أو عمود.</span></p>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Toolbox</span><span class="ar" lang="ar">الأدوات والمعارف</span></p>
+      <h2><span class="en">From the math underneath to deployment</span><span class="ar" lang="ar">من الرياضيات الأساسية إلى النشر</span></h2>
+    </div>
+    <div class="sk-find"><label class="sr" for="sksearch"><span class="en">Search the toolbox</span><span class="ar" lang="ar">ابحث في الأدوات</span></label><input id="sksearch" type="search" autocomplete="off" spellcheck="false"><span id="skcount" class="fit-count" aria-live="polite"></span></div>
+    <div class="sk">
+      <div><h3 class="lab"><span class="en">Programming &amp; Frameworks</span><span class="ar" lang="ar">البرمجة والأُطر</span></h3><ul dir="ltr"><li>Java</li><li>Python</li><li>SQL</li><li>React</li><li>Next.js</li><li>FastAPI</li><li>.NET</li><li>C#</li><li>ASP</li><li>Angular</li></ul></div>
+      <div><h3 class="lab"><span class="en">Data Analytics &amp; Visualization</span><span class="ar" lang="ar">تحليل البيانات وعرضها</span></h3><ul dir="ltr"><li>Pandas</li><li>NumPy</li><li>spaCy</li><li>Matplotlib</li><li>Seaborn</li><li>ArcGIS</li><li>SPSS</li><li>Orange</li><li>Power BI</li></ul></div>
+      <div><h3 class="lab"><span class="en">Mathematics</span><span class="ar" lang="ar">الرياضيات</span></h3><ul dir="ltr"><li>Statistics</li><li>Probability</li><li>Calculus</li><li>Linear Algebra</li></ul><p class="note"><span class="en">Used for estimating distributions and for optimization.</span><span class="ar" lang="ar">تُستخدم لتقدير التوزيعات وللتحسين.</span></p></div>
+      <div><h3 class="lab"><span class="en">Machine Learning</span><span class="ar" lang="ar">تعلّم الآلة</span></h3><ul dir="ltr"><li>Scikit-learn</li><li>Classification</li><li>Regression</li><li>Clustering</li><li>Association Rule Mining</li><li>Correlation Analysis</li></ul></div>
+      <div><h3 class="lab"><span class="en">Deep Learning</span><span class="ar" lang="ar">التعلّم العميق</span></h3><ul dir="ltr"><li>PyTorch</li><li>TensorFlow</li><li>NLTK</li><li>NLP (RNN)</li><li>CV (CNN)</li><li>Transfer Learning</li><li>Autoencoders</li><li>GANs</li><li>Transformers</li></ul></div>
+      <div><h3 class="lab"><span class="en">Model Optimization &amp; Evaluation</span><span class="ar" lang="ar">تحسين النماذج وتقييمها</span></h3><ul dir="ltr"><li>Loss Functions</li><li>Performance Metrics</li><li>Feature Engineering</li><li>Regularization</li><li>Fine-Tuning</li></ul></div>
+      <div><h3 class="lab"><span class="en">Agentic &amp; LLM</span><span class="ar" lang="ar">الوكلاء والنماذج اللغوية</span></h3><ul dir="ltr"><li>RAG</li><li>Automation</li><li>LangChain</li><li>LangSmith</li><li>n8n</li><li>Hugging Face</li><li>CrewAI</li><li>ReAct</li><li>Grafana</li><li>Prometheus</li></ul></div>
+      <div><h3 class="lab"><span class="en">MLOps &amp; Deployment</span><span class="ar" lang="ar">MLOps والنشر</span></h3><ul dir="ltr"><li>Azure</li><li>Docker</li><li>Kubernetes</li><li>Git / GitHub</li><li>CI/CD</li><li>Model Versioning</li><li>Terraform</li><li>Vercel</li><li>Render</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="path">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Path</span><span class="ar" lang="ar">المسار</span></p>
+      <h2><span class="en">Experience and education</span><span class="ar" lang="ar">الخبرة والتعليم</span></h2>
+      <p><span class="en">From a law degree in 2020 to .NET, data analytics, agents and machine learning, each step moved me closer to building AI.</span><span class="ar" lang="ar">من دراسة الحقوق عام 2020 إلى .NET وتحليل البيانات والوكلاء وتعلّم الآلة، كل خطوة قرّبتني أكثر من بناء الذكاء الاصطناعي.</span></p>
+    </div>
+    <div class="path">
+      <div>
+        <h3 class="lab"><span class="en">Experience</span><span class="ar" lang="ar">الخبرة</span></h3>
+        <div class="entry">
+          <strong><span class="en">AI &amp; Data Scientist (internship)</span><span class="ar" lang="ar">عالِم بيانات وذكاء اصطناعي (تدريب)</span></strong>
+          <p><span class="en">Ministry of Culture, Egypt · Egyptian Smart Heritage Project · Cairo</span><span class="ar" lang="ar">وزارة الثقافة، مصر · مشروع التراث الذكي المصري · القاهرة</span></p>
+        </div>
+        <div class="entry">
+          <strong><span class="en">Earlier roles</span><span class="ar" lang="ar">أدوار سابقة</span></strong>
+          <p><span class="en">Redcon Construction and Toshiba Al-Araby, outside AI and data science.</span><span class="ar" lang="ar">ريدكون للإنشاءات وتوشيبا العربي، خارج مجال الذكاء الاصطناعي وعلوم البيانات.</span></p>
+        </div>
+        <div class="vol">
+          <h3 class="lab"><span class="en">Volunteering</span><span class="ar" lang="ar">العمل التطوعي</span></h3>
+          <div class="entry">
+            <strong><span class="en">Creativa Innovation Hubs Ambassador</span><span class="ar" lang="ar">سفير Creativa Innovation Hubs</span></strong>
+            <p><span class="en">Cairo International Book Fair · Volunteer</span><span class="ar" lang="ar">معرض القاهرة الدولي للكتاب · متطوّع</span></p>
+            <p><span class="en">Supported technology and learning activities and engaged with participants during community events. Assisted visitors and participants and helped organize the event.</span><span class="ar" lang="ar">دعم أنشطة التقنية والتعلّم والتفاعل مع المشاركين خلال الفعاليات المجتمعية. مساعدة الزوار والمشاركين والإسهام في تنظيم الفعالية.</span></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="lab"><span class="en">Education &amp; certifications</span><span class="ar" lang="ar">التعليم والشهادات</span></h3>
+        <ul class="edu">
+          <li><span class="yr">2026</span><span><span class="en">AI &amp; Data Analytics Track · Egyptian Military Academy Graduate (DIGILIANS)</span><span class="ar" lang="ar">مسار الذكاء الاصطناعي وتحليل البيانات · خرّيج الأكاديمية العسكرية المصرية (DIGILIANS)</span></span></li>
+          <li><span class="yr">2026</span><span>Microsoft Certified: Power BI Data Analyst Associate (PL-300) · DP-900 Azure cloud · Microsoft</span></li>
+          <li><span class="yr">2025</span><span>AI Agent Fundamentals and Machine Learning Specialization · DeepLearning.AI &amp; Stanford Online</span></li>
+          <li><span class="yr">2023</span><span>Google Advanced Data Analytics Professional Certificate · Google / Coursera</span></li>
+          <li><span class="yr">2022</span><span><span class="en">NTI Graduate · .NET Development Track</span><span class="ar" lang="ar">خرّيج NTI · مسار تطوير .NET</span></span></li>
+          <li><span class="yr">2020</span><span><span class="en">Bachelor of Law (LL.B.)</span><span class="ar" lang="ar">بكالوريوس الحقوق (LL.B.)</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="fit" hidden>
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Fit check</span><span class="ar" lang="ar">فحص التوافق</span></p>
+      <h2><span class="en">Paste a job description. Get an honest match.</span><span class="ar" lang="ar">الصق وصف وظيفة. واحصل على تقييم صادق.</span></h2>
+      <p><span class="en">Claude compares the description with the facts on this page and says where Ibrahim fits and where he does not. It uses only his résumé and it can be wrong.</span><span class="ar" lang="ar">يقارن Claude الوصف الوظيفي بالحقائق الواردة في هذه الصفحة، ويذكر أين يتوافق إبراهيم وأين لا يتوافق. يعتمد على سيرته فقط، وقد يخطئ.</span></p>
+    </div>
+    <div class="fit">
+      <div>
+        <label class="lab" for="jd"><span class="en">Job description</span><span class="ar" lang="ar">الوصف الوظيفي</span></label>
+        <textarea id="jd" rows="9" maxlength="6000" spellcheck="false"></textarea>
+        <div class="fit-act">
+          <button id="fitgo" class="btn p" type="button"><span class="en">Check the fit</span><span class="ar" lang="ar">افحص التوافق</span></button>
+          <button id="fitstop" class="btn s" type="button" hidden><span class="en">Stop</span><span class="ar" lang="ar">إيقاف</span></button>
+          <span id="fitcount" class="fit-count" dir="ltr">0 / 6000</span>
+        </div>
+      </div>
+      <div id="fitout" class="fit-out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="honest">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker lab"><span class="en">Straight talk</span><span class="ar" lang="ar">بصراحة</span></p>
+      <h2><span class="en">What this page claims, and what it does not</span><span class="ar" lang="ar">ما تقوله هذه الصفحة، وما لا تدّعيه</span></h2>
+      <p><span class="en">Everything here comes from my résumé. Where the résumé is silent, the page is silent too.</span><span class="ar" lang="ar">كل ما هنا مأخوذ من سيرتي الذاتية. وحيث تسكت السيرة، تسكت الصفحة.</span></p>
+    </div>
+    <div class="hon">
+<div><h3 class="lab"><span class="en">Projects</span><span class="ar" lang="ar">المشاريع</span></h3><p><span class="en">Five projects, described as my résumé describes them. Four have a demo link. KADSTAR does not have one yet.</span><span class="ar" lang="ar">خمسة مشاريع بالوصف نفسه الوارد في سيرتي. أربعة منها لها رابط عرض، وKADSTAR ليس له رابط بعد.</span></p></div>
+<div><h3 class="lab"><span class="en">Numbers</span><span class="ar" lang="ar">الأرقام</span></h3><p><span class="en">No accuracy, latency or usage figures appear here. My résumé does not state them, so I show none instead of inventing them.</span><span class="ar" lang="ar">لا تظهر هنا أرقام دقة أو زمن استجابة أو استخدام. سيرتي لا تذكرها، فلا أعرض شيئاً بدل أن أخترع.</span></p></div>
+<div><h3 class="lab"><span class="en">Experience</span><span class="ar" lang="ar">الخبرة</span></h3><p><span class="en">One internship in AI and data science, at the Ministry of Culture. My earlier jobs at Redcon Construction and Toshiba Al-Araby were in other fields.</span><span class="ar" lang="ar">تدريب واحد في الذكاء الاصطناعي وعلوم البيانات بوزارة الثقافة. أما عملي السابق في ريدكون للإنشاءات وتوشيبا العربي فكان في مجالات أخرى.</span></p></div>
+<div><h3 class="lab"><span class="en">Capability map</span><span class="ar" lang="ar">خريطة القدرات</span></h3><p><span class="en">It is my own reading of what each project leans on. It is not a measured score.</span><span class="ar" lang="ar">هي قراءتي الخاصة لما يعتمد عليه كل مشروع. وليست درجة مقاسة.</span></p></div>
+<div><h3 class="lab"><span class="en">Certificates</span><span class="ar" lang="ar">الشهادات</span></h3><p><span class="en">Listed as they appear on my résumé, without verification links.</span><span class="ar" lang="ar">مذكورة كما وردت في سيرتي، دون روابط تحقق.</span></p></div>
+<div><h3 class="lab"><span class="en">The assistant</span><span class="ar" lang="ar">المساعد</span></h3><p><span class="en">An AI answers from my résumé only, and it can be wrong. For anything important, write to me by email.</span><span class="ar" lang="ar">مساعد ذكاء اصطناعي يجيب من سيرتي فقط، وقد يخطئ. لأي أمر مهم راسلني بالبريد.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="lab"><span class="en">Contact</span><span class="ar" lang="ar">تواصل</span></p>
+      <h2><span class="en">Open to remote work in AI and data science.</span><span class="ar" lang="ar">متاح للعمل عن بُعد في الذكاء الاصطناعي وعلوم البيانات.</span></h2>
+      <p><span class="en">Based in Cairo, Egypt.</span><span class="ar" lang="ar">مقيم في القاهرة، مصر.</span></p>
+    </div>
+    <div>
+      <div class="crow"><span class="lab"><span class="en">Email</span><span class="ar" lang="ar">البريد</span></span><span class="val" dir="ltr">ibrahimrifai300@gmail.com</span><button class="cp" type="button" data-copy="ibrahimrifai300@gmail.com"><span class="lbl"><span class="en">Copy</span><span class="ar" lang="ar">نسخ</span></span><span class="ok"><span class="en">Copied</span><span class="ar" lang="ar">تم النسخ</span></span></button></div>
+      <div class="crow"><span class="lab"><span class="en">Phone</span><span class="ar" lang="ar">الهاتف</span></span><span class="val" dir="ltr">+20 102 707 1212</span><button class="cp" type="button" data-copy="+20 102 707 1212"><span class="lbl"><span class="en">Copy</span><span class="ar" lang="ar">نسخ</span></span><span class="ok"><span class="en">Copied</span><span class="ar" lang="ar">تم النسخ</span></span></button></div>
+      <div class="crow"><span class="lab">GitHub</span><span class="val" dir="ltr"><a href="https://github.com/ibrahim-rifai" target="_blank" rel="noopener">github.com/ibrahim-rifai</a></span><span></span></div>
+      <div class="crow"><span class="lab">LinkedIn</span><span class="val" dir="ltr"><a href="https://linkedin.com/in/ibrahim-rifai-" target="_blank" rel="noopener">linkedin.com/in/ibrahim-rifai-</a></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap"><span class="en">Ibrahim Atta Abdulmongid Rifai · Cairo, Egypt · Updated November 2026</span><span class="ar" lang="ar">إبراهيم عطا عبد المنجد رفاعي · القاهرة، مصر · آخر تحديث نوفمبر 2026</span></div></footer>
+
+<button id="fab" class="fab" type="button" hidden aria-haspopup="dialog" aria-controls="chat" aria-expanded="false" aria-label="Ask the assistant">
+  <svg class="robot" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <line x1="32" y1="8" x2="32" y2="17" stroke="#e8eeff" stroke-width="3" stroke-linecap="round"/>
+    <circle class="ant" cx="32" cy="7" r="3.6"/>
+    <rect class="ear" x="8" y="30" width="6" height="13" rx="3"/>
+    <rect class="ear" x="50" y="30" width="6" height="13" rx="3"/>
+    <rect class="head" x="13" y="16" width="38" height="34" rx="12"/>
+    <rect class="face" x="19" y="24" width="26" height="15" rx="7"/>
+    <g class="eyes"><circle cx="27" cy="31.5" r="3.3"/><circle cx="37" cy="31.5" r="3.3"/></g>
+    <path class="mouth" d="M26 44.5 Q32 48.5 38 44.5"/>
+  </svg>
+  <span class="fab-l"><span class="en">Ask the assistant</span><span class="ar" lang="ar">اسأل المساعد</span></span>
+</button>
+<section id="chat" class="chat" role="dialog" aria-label="Assistant" hidden>
+  <div class="chat-h">
+    <svg class="chat-av" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><line x1="32" y1="8" x2="32" y2="17" stroke="#e8eeff" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="7" r="3.6" fill="#e6b64f"/><rect x="8" y="30" width="6" height="13" rx="3" fill="#4fe0d4"/><rect x="50" y="30" width="6" height="13" rx="3" fill="#4fe0d4"/><rect x="13" y="16" width="38" height="34" rx="12" fill="#e8eeff"/><rect x="19" y="24" width="26" height="15" rx="7" fill="#0a1129"/><circle cx="27" cy="31.5" r="3.3" fill="#4fe0d4"/><circle cx="37" cy="31.5" r="3.3" fill="#4fe0d4"/><path d="M26 44.5 Q32 48.5 38 44.5" fill="none" stroke="#0a1129" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div class="chat-t"><strong><span class="en">Ask about Ibrahim</span><span class="ar" lang="ar">اسأل عن إبراهيم</span></strong><span class="chat-sub"><span class="en">AI assistant that answers from his résumé</span><span class="ar" lang="ar">مساعد ذكاء اصطناعي يجيب من سيرته الذاتية</span></span></div>
+    <button id="chatnew" class="chat-x" type="button" aria-label="New chat" title="New chat">↺</button>
+    <button id="chatx" class="chat-x" type="button" aria-label="Close">×</button>
+  </div>
+  <div id="log" class="log" aria-live="polite">
+    <div class="msg bot"><span class="en">Hi, I am an AI assistant. Ask me about Ibrahim's projects, skills or background.</span><span class="ar" lang="ar">أهلاً، أنا مساعد ذكاء اصطناعي. اسألني عن مشاريع إبراهيم ومهاراته وخلفيته.</span></div>
+  </div>
+  <div id="sugg" class="sugg">
+    <button type="button" data-en="What has he built with RAG?" data-ar="ماذا بنى باستخدام RAG؟"><span class="en">What has he built with RAG?</span><span class="ar" lang="ar">ماذا بنى باستخدام RAG؟</span></button>
+    <button type="button" data-en="Tell me about the sign language project" data-ar="حدّثني عن مشروع لغة الإشارة"><span class="en">The sign language project</span><span class="ar" lang="ar">مشروع لغة الإشارة</span></button>
+    <button type="button" data-en="Which cloud and MLOps tools does he use?" data-ar="ما أدوات السحابة وMLOps التي يستخدمها؟"><span class="en">Cloud and MLOps tools</span><span class="ar" lang="ar">أدوات السحابة وMLOps</span></button>
+    <button type="button" data-en="How can I contact him?" data-ar="كيف أتواصل معه؟"><span class="en">How to contact him</span><span class="ar" lang="ar">كيف أتواصل معه</span></button>
+  </div>
+  <form id="cform" class="cform">
+    <input id="cin" type="text" autocomplete="off" aria-label="Message">
+    <button id="send" type="submit"><span class="en">Send</span><span class="ar" lang="ar">إرسال</span></button>
+    <button id="stop" type="button" hidden><span class="en">Stop</span><span class="ar" lang="ar">إيقاف</span></button>
+  </form>
+  <p class="chat-note"><span class="en">AI can make mistakes. Check important details with Ibrahim.</span><span class="ar" lang="ar">قد يخطئ الذكاء الاصطناعي. تحقق من التفاصيل المهمة مع إبراهيم.</span></p>
+</section>
+
+</div>
+
+<script>
+var RESUME_MD = [
+"# Ibrahim Atta Abdulmongid Rifai (Ibrahim Rifai)",
+"AI & Data Scientist. Based in Cairo, Egypt. Open to remote work.",
+"Email: ibrahimrifai300@gmail.com | Phone: +20 102 707 1212 | GitHub: github.com/ibrahim-rifai | LinkedIn: linkedin.com/in/ibrahim-rifai-",
+"",
+"## Summary",
+"Passionate about finding hidden patterns that point a system in the right direction during oscillation or sporadic conditions. Works with space-time thinking and context-aware attention mechanisms that sense intent. Cares about reducing latency and token usage, checking whether a workload is compute-bound or bandwidth-bound before benchmarking, preventing bottlenecks, configuring coherent environments, fine-tuning and debugging, and drawing conclusions that guide business.",
+"",
+"## Experience",
+"- AI & Data Scientist (internship), Ministry of Culture, Egypt: Egyptian Smart Heritage Project, Cairo.",
+"- Earlier roles at Redcon Construction and Toshiba Al-Araby, not directly related to AI and data science.",
+"",
+"## Main projects",
+"### ConversaCard: Trilingual AI Shopping Assistant (intent attention, Spinneys e-commerce). A demo link is available.",
+"- Arabic, English and Arabizi conversational processing for intent recognition, query refinement and context-aware multi-turn dialogue.",
+"- MySQL to canonical to Parquet data pipelines feeding ChromaDB for embeddings and hybrid retrieval: semantic search, BM25 and fuzzy matching for correction.",
+"- Recommendations, product comparisons and Paymob payment built with Python, FastAPI and Next.js.",
+"### KAK: Poultry Disease Classifier (Digilians Capstone). A demo link is available.",
+"- Two-stage image classification pipeline using EfficientNet and MobileNet with TensorFlow for poultry disease detection.",
+"- RAG for disease-related Q&A, deployed with FastAPI and React.",
+"- Interactive Power BI dashboard with DAX, data modeling and slicers for performance analysis, and secure row-level security (RLS).",
+"### MOTL2L2: Arabic Sign Language AI Translator (CNN and LSTM). A demo link is available.",
+"- Extracted hand and body landmarks with MediaPipe and engineered sequence features for sign classification.",
+"- Calculated spatial distances between pose landmarks to improve gesture-sequence feature quality.",
+"### KADSTAR: Legal RAG Knowledge Assistant (LLM / RAG). No demo link is listed.",
+"- RAG pipeline with MiniLM embeddings, BM25 lexical retrieval, semantic search, Chroma and LangChain for legal question answering.",
+"- Served through FastAPI with a Streamlit interface.",
+"### GenuSonic: Macro-to-Micro Multimodal Geospatial Analytics. A demo link is available.",
+"- AI workflows integrating satellite, drone and sensor data across spatial scales to localize carbon estimation.",
+"- Fused spatial, spectral, temporal and numerical modalities for unified geospatial intelligence using cross attention.",
+"- Integrated AI models, RAG, intelligent agents and robotics to turn multimodal insights into automated field actions.",
+"",
+"## Technical skills",
+"- Programming & frameworks: Java, Python, SQL, React, Next.js, FastAPI, .NET, C#, ASP, Angular",
+"- Data analytics & visualization: Pandas, NumPy, spaCy, Matplotlib, Seaborn, ArcGIS, SPSS, Orange, Power BI",
+"- Mathematics: Statistics, Probability, Calculus, Linear Algebra (for estimating distributions and optimization)",
+"- Machine learning: Scikit-learn, Classification, Regression, Clustering, Association Rule Mining, Correlation Analysis",
+"- Deep learning: PyTorch, TensorFlow, NLTK, NLP (RNN), CV (CNN), Transfer Learning, Autoencoders, GANs, Transformers",
+"- Model optimization & evaluation: Loss Functions, Performance Metrics, Feature Engineering, Regularization, Fine-Tuning",
+"- Agentic & LLM: RAG, Automation, LangChain, LangSmith, n8n, Hugging Face, CrewAI, ReAct, Grafana, Prometheus",
+"- MLOps & deployment: Azure, Docker, Kubernetes, Git/GitHub, CI/CD, Model Versioning, Terraform, Vercel, Render",
+"",
+"## Education & certifications",
+"- 2026: AI & Data Analytics Track, Egyptian Military Academy Graduate (DIGILIANS)",
+"- 2026: Microsoft Certified: Power BI Data Analyst Associate (PL-300), DP-900 Azure cloud, Microsoft",
+"- 2025: AI Agent Fundamentals and Machine Learning Specialization, DeepLearning.AI & Stanford Online",
+"- 2023: Google Advanced Data Analytics Professional Certificate, Google / Coursera",
+"- 2022: NTI Graduate, .NET Development Track",
+"- 2020: Bachelor of Law (LL.B.)",
+"",
+"## Volunteering",
+"- Creativa Innovation Hubs Ambassador, Cairo International Book Fair (volunteer): supported technology and learning activities, engaged with participants, assisted visitors and helped organize the event."
+].join("\n");
+var MX = {"cols": [{"en": "Attention & intent", "ar": "الانتباه والنية"}, {"en": "Language & retrieval", "ar": "اللغة والاسترجاع"}, {"en": "Vision", "ar": "الرؤية الحاسوبية"}, {"en": "Sequence models", "ar": "نماذج التسلسل"}, {"en": "RAG & agents", "ar": "RAG والوكلاء"}, {"en": "Multimodal & geospatial", "ar": "متعدد الوسائط ومكاني"}, {"en": "Data engineering", "ar": "هندسة البيانات"}, {"en": "BI & analytics", "ar": "ذكاء الأعمال والتحليل"}, {"en": "Apps & delivery", "ar": "التطبيقات والنشر"}], "rows": [{"n": "ConversaCard", "c": [2, 2, 0, 0, 0, 0, 2, 0, 2]}, {"n": "KAK", "c": [0, 0, 2, 0, 2, 0, 0, 2, 2]}, {"n": "MOTL2L2", "c": [0, 0, 2, 2, 0, 0, 0, 0, 0]}, {"n": "KADSTAR", "c": [0, 2, 0, 0, 2, 0, 0, 0, 2]}, {"n": "GenuSonic", "c": [2, 0, 1, 1, 2, 2, 1, 0, 0]}]};
+(function(){
+  var app = document.getElementById('app');
+
+  /* language */
+  function setLang(l){
+    app.setAttribute('data-lang', l);
+    app.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    app.setAttribute('lang', l);
+    try { localStorage.setItem('ir-lang', l); } catch(e) {}
+    var b = document.getElementById('langbtn');
+    if (b) b.setAttribute('aria-label', l === 'ar' ? 'Switch to English' : 'التبديل إلى العربية');
+    if (typeof mxReset === 'function') mxReset();
+    if (typeof ph === 'function') ph();
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('ir-lang'); } catch(e) {}
+  document.getElementById('langbtn').addEventListener('click', function(){
+    setLang(app.getAttribute('data-lang') === 'ar' ? 'en' : 'ar');
+  });
+
+  /* copy buttons */
+  var cps = document.querySelectorAll('[data-copy]');
+  for (var k = 0; k < cps.length; k++) {
+    (function(b){
+      b.addEventListener('click', function(){
+        var done = function(){ b.classList.add('done'); setTimeout(function(){ b.classList.remove('done'); }, 1600); };
+        var fb = function(){
+          try {
+            var r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+            var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          } catch(e) {}
+        };
+        try { navigator.clipboard.writeText(b.getAttribute('data-copy')).then(done, fb); } catch(e) { fb(); }
+      });
+    })(cps[k]);
+  }
+
+  /* matrix */
+  var mx = document.getElementById('mx');
+  var note = document.getElementById('mxnote');
+  var noteDef = note.innerHTML;
+  var els = mx.querySelectorAll('[data-r],[data-c]');
+  function lvl(r, c){ return MX.rows[r].c[c]; }
+  function hl(r, c){
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var er = el.getAttribute('data-r'), ec = el.getAttribute('data-c');
+      er = er === null ? null : +er; ec = ec === null ? null : +ec;
+      var on;
+      if (er !== null && ec !== null) on = (r === null || er === r) && (c === null || ec === c);
+      else if (er !== null) on = r === null ? (c === null || lvl(er, c) > 0) : er === r;
+      else on = c === null ? (r === null || lvl(r, ec) > 0) : ec === c;
+      el.classList.toggle('off', !on);
+    }
+    var lang = app.getAttribute('data-lang'), parts = [], i2;
+    if (r !== null) {
+      for (i2 = 0; i2 < MX.cols.length; i2++) if (lvl(r, i2) > 0) parts.push(MX.cols[i2][lang]);
+      note.textContent = MX.rows[r].n + ': ' + parts.join(' · ');
+    } else if (c !== null) {
+      for (i2 = 0; i2 < MX.rows.length; i2++) if (lvl(i2, c) > 0) parts.push(MX.rows[i2].n);
+      note.textContent = MX.cols[c][lang] + ': ' + parts.join(' · ');
+    }
+  }
+  function mxReset(){
+    for (var i = 0; i < els.length; i++) els[i].classList.remove('off');
+    note.innerHTML = noteDef;
+  }
+  var trs = mx.querySelectorAll('tbody tr');
+  for (var a = 0; a < trs.length; a++) {
+    (function(tr){
+      var r = +tr.getAttribute('data-r');
+      tr.addEventListener('mouseenter', function(){ hl(r, null); });
+      tr.addEventListener('focusin', function(){ hl(r, null); });
+      tr.addEventListener('click', function(e){ if (e.target.closest && e.target.closest('a')) return; hl(r, null); });
+    })(trs[a]);
+  }
+  var ths = mx.querySelectorAll('thead th[data-c]');
+  for (var b2 = 0; b2 < ths.length; b2++) {
+    (function(th){
+      var c = +th.getAttribute('data-c');
+      th.addEventListener('mouseenter', function(){ hl(null, c); });
+      th.addEventListener('focus', function(){ hl(null, c); });
+    })(ths[b2]);
+  }
+  mx.addEventListener('mouseleave', mxReset);
+  mx.addEventListener('focusout', function(e){ if (!mx.contains(e.relatedTarget)) mxReset(); });
+
+
+  /* project filter */
+  var fch = document.querySelectorAll('.fchip'), arts = document.querySelectorAll('.proj');
+  function filt(tag){
+    var first = true;
+    for (var i = 0; i < arts.length; i++) {
+      var tags = (arts[i].getAttribute('data-tags') || '').split(' ');
+      var show = tag === 'all' || tags.indexOf(tag) > -1;
+      arts[i].hidden = !show;
+      arts[i].classList.toggle('first', show && first);
+      if (show) first = false;
+    }
+    for (var j = 0; j < fch.length; j++) fch[j].setAttribute('aria-pressed', fch[j].getAttribute('data-f') === tag ? 'true' : 'false');
+  }
+  for (var m = 0; m < fch.length; m++) {
+    (function(b){ b.addEventListener('click', function(){ filt(b.getAttribute('data-f')); }); })(fch[m]);
+  }
+
+  /* assistant and résumé download */
+  function apiPost(path, body, signal){
+    return fetch(path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), signal: signal }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(j){
+        if (!r.ok) {
+          var e = new Error((j && j.error) || 'request failed');
+          e.code = r.status === 429 ? 'rate_limited' : (r.status === 503 ? 'sampling_disabled' : 'fail');
+          throw e;
+        }
+        return j;
+      });
+    }, function(err){
+      var e = new Error('network');
+      e.code = (err && err.name === 'AbortError') ? 'cancelled' : 'fail';
+      throw e;
+    });
+  }
+  function chatApi(input, opts){
+    return apiPost('/api/chat', { messages: input, lang: L() }, opts && opts.signal).then(function(j){
+      if (opts && opts.onText) opts.onText({ text: j.text });
+      return { text: j.text };
+    });
+  }
+  function fitApi(text, lang, signal){ return apiPost('/api/fit', { jd: text, lang: lang }, signal); }
+  function saveText(name, data){
+    try {
+      var blob = new Blob([data], { type: 'text/markdown;charset=utf-8' });
+      var u = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = u; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(u); }, 1000);
+    } catch (e) {}
+  }
+  var sampleFn = null, turns = [], busy = false, ctl = null, dead = false;
+  var fab = document.getElementById('fab'), chat = document.getElementById('chat'), log = document.getElementById('log');
+  var cform = document.getElementById('cform'), cin = document.getElementById('cin'), sendB = document.getElementById('send');
+  var stopB = document.getElementById('stop'), sugg = document.getElementById('sugg');
+  var askHero = document.getElementById('askhero'), dlB = document.getElementById('dlres');
+  var T = {
+    ph:    { en: 'Ask about projects, skills, background…', ar: 'اسأل عن المشاريع أو المهارات أو الخلفية…' },
+    think: { en: 'Thinking…', ar: 'جارٍ التفكير…' },
+    off:   { en: 'The assistant is not available right now. Please try again later or write to Ibrahim by email.', ar: 'المساعد غير متاح حالياً. حاول لاحقاً أو راسل إبراهيم بالبريد.' },
+    rate:  { en: 'Too many requests. Please try again in a little while.', ar: 'طلبات كثيرة. حاول مرة أخرى بعد قليل.' },
+    sess:  { en: 'Please sign in to Claude again, then retry.', ar: 'سجّل الدخول إلى Claude مرة أخرى ثم أعد المحاولة.' },
+    ref:   { en: 'I cannot answer that one. Try asking about his projects, skills or background.', ar: 'لا أستطيع الإجابة عن هذا. جرّب سؤالاً عن مشاريعه أو مهاراته أو خلفيته.' },
+    fail:  { en: 'Something went wrong. Please try again.', ar: 'حدث خطأ. حاول مرة أخرى.' },
+    copy:  { en: 'Copy', ar: 'نسخ' },
+    copied:{ en: 'Copied', ar: 'تم النسخ' }
+  };
+  function L(){ return app.getAttribute('data-lang') === 'ar' ? 'ar' : 'en'; }
+  function tx(k){ return T[k][L()]; }
+  function ph(){ cin.setAttribute('placeholder', tx('ph')); }
+  function openChat(){ chat.hidden = false; fab.setAttribute('aria-expanded', 'true'); setTimeout(function(){ cin.focus(); }, 0); }
+  function closeChat(){ chat.hidden = true; fab.setAttribute('aria-expanded', 'false'); fab.focus(); }
+  var PIDS = { 'ConversaCard': 'p-conversacard', 'KAK': 'p-kak', 'MOTL2L2': 'p-motl2l2', 'KADSTAR': 'p-kadstar', 'GenuSonic': 'p-genusonic' };
+  function lk(parent, t){
+    var parts = t.split(/(ConversaCard|KADSTAR|GenuSonic|MOTL2L2|\bKAK\b|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|(?:https?:\/\/)?(?:github\.com\/ibrahim-rifai|linkedin\.com\/in\/ibrahim-rifai-))/);
+    for (var i = 0; i < parts.length; i++) {
+      var x = parts[i]; if (!x) continue;
+      var a = null;
+      if (PIDS[x]) { a = document.createElement('a'); a.className = 'plink'; a.href = '#' + PIDS[x]; a.textContent = x; a.setAttribute('data-pid', PIDS[x]); }
+      else if (/@/.test(x) && /^[A-Za-z0-9._%+-]+@/.test(x)) { a = document.createElement('button'); a.type = 'button'; a.className = 'mailcp'; a.textContent = x; a.setAttribute('data-copy-text', x); a.setAttribute('dir', 'ltr'); }
+      else if (/github\.com|linkedin\.com/.test(x)) { a = document.createElement('a'); a.className = 'plink'; a.target = '_blank'; a.rel = 'noopener'; a.href = /^https?:/.test(x) ? x : 'https://' + x; a.textContent = x; a.setAttribute('dir', 'ltr'); }
+      parent.appendChild(a || document.createTextNode(x));
+    }
+  }
+  function inl(parent, t){
+    var parts = t.split(/(\*\*[^*\n]+\*\*|`[^`\n]+`|\*[^*\s][^*\n]*\*)/);
+    for (var i = 0; i < parts.length; i++) {
+      var x = parts[i]; if (!x) continue;
+      var el = null;
+      if (/^\*\*[^*]+\*\*$/.test(x)) { el = document.createElement('strong'); lk(el, x.slice(2, -2)); }
+      else if (/^`[^`]+`$/.test(x)) { el = document.createElement('code'); el.textContent = x.slice(1, -1); }
+      else if (/^\*[^*]+\*$/.test(x)) { el = document.createElement('em'); el.textContent = x.slice(1, -1); }
+      if (el) parent.appendChild(el); else lk(parent, x);
+    }
+  }
+  function setBot(el, text){
+    el.textContent = '';
+    var lines = String(text).replace(/\r/g, '').split('\n'), list = null, para = null;
+    for (var i = 0; i < lines.length; i++) {
+      var ln = lines[i];
+      if (/^\s*\|?[\s:|-]+\|[\s:|-]*$/.test(ln) && ln.indexOf('-') > -1) continue;
+      if (/^\s*\|.*\|\s*$/.test(ln)) ln = ln.replace(/^\s*\||\|\s*$/g, '').replace(/\s*\|\s*/g, ' · ');
+      ln = ln.replace(/^\s{0,3}#{1,6}\s+/, '').replace(/^\s*>\s?/, '');
+      var m = ln.match(/^\s*([-*•]|\d+[.)])\s+(.*)$/);
+      if (!ln.trim()) { list = null; para = null; continue; }
+      if (m) {
+        var ordered = /\d/.test(m[1]);
+        if (!list || list.ordered !== ordered) {
+          list = document.createElement(ordered ? 'ol' : 'ul'); list.ordered = ordered; el.appendChild(list);
+        }
+        var li = document.createElement('li'); inl(li, m[2]); list.appendChild(li); para = null;
+      } else {
+        list = null;
+        if (!para) { para = document.createElement('p'); el.appendChild(para); } else { para.appendChild(document.createElement('br')); }
+        inl(para, ln.trim());
+      }
+    }
+    if (!el.firstChild) el.textContent = String(text);
+  }
+  function addCopy(bub, text){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'mcopy'; b.textContent = tx('copy');
+    b.addEventListener('click', function(){
+      var ok = function(){ b.textContent = tx('copied'); setTimeout(function(){ b.textContent = tx('copy'); }, 1500); };
+      try { navigator.clipboard.writeText(text).then(ok, function(){}); } catch (e) {}
+    });
+    bub.appendChild(b);
+  }
+  log.addEventListener('click', function(e){
+    var t = e.target;
+    if (t.closest) {
+      var m = t.closest('.mailcp');
+      if (m) { try { navigator.clipboard.writeText(m.getAttribute('data-copy-text')).then(function(){ var o = m.textContent; m.textContent = tx('copied'); setTimeout(function(){ m.textContent = o; }, 1400); }, function(){}); } catch (er) {} return; }
+      var a = t.closest('.plink[data-pid]');
+      if (a) { filt('all'); if (window.innerWidth <= 560) closeChat(); }
+    }
+  });
+  function addMsg(cls, text){
+    var d = document.createElement('div');
+    d.className = 'msg ' + cls; d.setAttribute('dir', 'auto'); d.textContent = text;
+    log.appendChild(d); log.scrollTop = log.scrollHeight;
+    return d;
+  }
+  function setBusy(b){ busy = b; sendB.hidden = b; stopB.hidden = !b; }
+  function keep(bub, text){ bub.classList.remove('typing'); setBot(bub, text); addCopy(bub, text); turns.push({ role: 'assistant', content: text }); }
+  function send(q){
+    q = (q || '').trim();
+    if (!q || busy || dead || !sampleFn) return;
+    sugg.hidden = true;
+    addMsg('me', q); turns.push({ role: 'user', content: q }); cin.value = '';
+    var bub = addMsg('bot typing', '');
+    ctl = new AbortController(); setBusy(true);
+    var input = turns.slice(-8);
+    sampleFn(input, {
+      cache: false, modelTier: 'quick', signal: ctl.signal,
+      onText: function(u){ bub.classList.remove('typing'); setBot(bub, u.text); log.scrollTop = log.scrollHeight; }
+    }).then(function(r){
+      keep(bub, r.text);
+    }, function(e){
+      var code = e && e.code;
+      if (code === 'cancelled') { if (e.text) keep(bub, e.text); else bub.remove(); return; }
+      var key = code === 'rate_limited' ? 'rate' : code === 'session_expired' ? 'sess' : code === 'refused' ? 'ref' :
+        (code === 'not_granted' || code === 'sampling_disabled' || code === 'not_declared' || code === 'capability_disabled' || code === 'capability_removed') ? 'off' : 'fail';
+      if (key === 'off') { dead = true; cin.disabled = true; sendB.disabled = true; }
+      if (e && e.text && key === 'fail') { keep(bub, e.text); addMsg('bot err', tx('fail')); }
+      else { bub.className = 'msg bot err'; bub.textContent = tx(key); }
+    }).then(function(){ setBusy(false); ctl = null; });
+  }
+  fab.addEventListener('click', function(){ if (chat.hidden) openChat(); else closeChat(); });
+  document.getElementById('chatx').addEventListener('click', closeChat);
+  askHero.addEventListener('click', openChat);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !chat.hidden) closeChat(); });
+  cform.addEventListener('submit', function(e){ e.preventDefault(); send(cin.value); });
+  stopB.addEventListener('click', function(){ if (ctl) ctl.abort(); });
+  var sb = sugg.querySelectorAll('button');
+  for (var n = 0; n < sb.length; n++) {
+    (function(b){ b.addEventListener('click', function(){ send(b.getAttribute('data-' + L())); }); })(sb[n]);
+  }
+  ph();
+  sampleFn = chatApi; fab.hidden = false; askHero.hidden = false;
+  dlB.hidden = false;
+  dlB.addEventListener('click', function(){ saveText('Ibrahim_Rifai_Resume.md', RESUME_MD); });
+
+  if (saved === 'ar' || saved === 'en') setLang(saved);
+  else if (/^ar/i.test(navigator.language || '')) setLang('ar');
+
+  /* theme toggle, new chat, fit check */
+  var root = document.documentElement;
+  function curTheme(){
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark' || t === 'light') return t;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  try { var st = localStorage.getItem('ir-theme'); if (st === 'dark' || st === 'light') root.setAttribute('data-theme', st); } catch (e) {}
+  document.getElementById('themebtn').addEventListener('click', function(){
+    var n = curTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', n);
+    try { localStorage.setItem('ir-theme', n); } catch (e) {}
+  });
+
+  var welcomeHTML = log.innerHTML;
+  document.getElementById('chatnew').addEventListener('click', function(){
+    if (ctl) ctl.abort();
+    turns = []; log.innerHTML = welcomeHTML; sugg.hidden = false; setBusy(false);
+    if (!dead) cin.focus();
+  });
+
+  T.short = { en: 'Paste a longer job description (at least 40 characters).', ar: 'الصق وصفاً وظيفياً أطول (40 حرفاً على الأقل).' };
+  var V = {
+    strong:  { en: 'Strong match', ar: 'توافق قوي' },
+    partial: { en: 'Partial match', ar: 'توافق جزئي' },
+    weak:    { en: 'Weak match', ar: 'توافق ضعيف' }
+  };
+  var HD = { fit: { en: 'Where he fits', ar: 'أين يتوافق' }, gap: { en: 'Gaps', ar: 'الفجوات' }, ph: { en: 'Paste the job description here', ar: 'الصق الوصف الوظيفي هنا' } };
+  var jd = document.getElementById('jd'), fitGo = document.getElementById('fitgo'), fitStop = document.getElementById('fitstop');
+  var fitOut = document.getElementById('fitout'), fitCount = document.getElementById('fitcount'), fitCtl = null;
+  function fph(){ jd.setAttribute('placeholder', HD.ph[L()]); }
+  fph();
+  jd.addEventListener('input', function(){ fitCount.textContent = jd.value.length + ' / 6000'; });
+  new MutationObserver(fph).observe(app, { attributes: true, attributeFilter: ['data-lang'] });
+  function fitReady(){ document.getElementById('fit').hidden = false; }
+  if (sampleFn) fitReady();
+  function fitMsg(txt, cls){
+    fitOut.textContent = '';
+    var d = document.createElement('p'); d.className = 'fit-note' + (cls ? ' ' + cls : ''); d.textContent = txt; fitOut.appendChild(d);
+  }
+  function list(title, arr, cls){
+    var box = document.createElement('div'); box.className = 'fit-col ' + cls;
+    var h = document.createElement('h3'); h.className = 'lab'; h.textContent = title; box.appendChild(h);
+    var ul = document.createElement('ul');
+    for (var i = 0; i < arr.length; i++) { var li = document.createElement('li'); li.textContent = String(arr[i]); ul.appendChild(li); }
+    box.appendChild(ul); return box;
+  }
+  function showFit(r){
+    fitOut.textContent = '';
+    var v = (r && V[r.verdict]) ? r.verdict : 'partial';
+    var pill = document.createElement('p'); pill.className = 'fit-pill ' + v; pill.textContent = V[v][L()]; fitOut.appendChild(pill);
+    var sm = document.createElement('p'); sm.className = 'fit-sum'; sm.setAttribute('dir', 'auto'); sm.textContent = String((r && r.summary) || ''); fitOut.appendChild(sm);
+    var st = Array.isArray(r && r.strengths) ? r.strengths.slice(0, 6) : [], gp = Array.isArray(r && r.gaps) ? r.gaps.slice(0, 6) : [];
+    var cols = document.createElement('div'); cols.className = 'fit-cols'; cols.setAttribute('dir', 'auto');
+    if (st.length) cols.appendChild(list(HD.fit[L()], st, 'good'));
+    if (gp.length) cols.appendChild(list(HD.gap[L()], gp, 'gap'));
+    fitOut.appendChild(cols);
+  }
+  function setFitBusy(b){ fitGo.hidden = b; fitStop.hidden = !b; jd.disabled = b; }
+  fitGo.addEventListener('click', function(){
+    var text = jd.value.trim();
+    if (!sampleFn) return;
+    if (text.length < 40) { fitMsg(tx('short'), 'err'); return; }
+    fitCtl = new AbortController(); setFitBusy(true); fitMsg(tx('think'), 'wait');
+    fitApi(text, L(), fitCtl.signal).then(function(r){
+      showFit(r);
+    }, function(e){
+      var code = e && e.code;
+      if (code === 'cancelled') { fitOut.textContent = ''; return; }
+      var key = code === 'rate_limited' ? 'rate' : code === 'session_expired' ? 'sess' : code === 'refused' ? 'ref' :
+        (code === 'not_granted' || code === 'sampling_disabled' || code === 'not_declared' || code === 'capability_disabled' || code === 'capability_removed') ? 'off' : 'fail';
+      fitMsg(tx(key), 'err');
+    }).then(function(){ setFitBusy(false); fitCtl = null; });
+  });
+  fitStop.addEventListener('click', function(){ if (fitCtl) fitCtl.abort(); });
+
+  /* skills search */
+  var skIn = document.getElementById('sksearch'), skCnt = document.getElementById('skcount');
+  var skGroups = document.querySelectorAll('.sk>div');
+  var skNone = document.createElement('p'); skNone.className = 'sk-none'; skNone.hidden = true;
+  document.querySelector('.sk').appendChild(skNone);
+  var SKT = {
+    ph:   { en: 'Search the toolbox, for example RAG or Docker', ar: 'ابحث في الأدوات، مثل RAG أو Docker' },
+    none: { en: 'Nothing in the toolbox matches. This page lists only what is on the résumé.', ar: 'لا شيء في الأدوات يطابق بحثك. تعرض الصفحة فقط ما ورد في السيرة.' },
+    n:    { en: ' found', ar: ' نتيجة' }
+  };
+  function skPh(){ skIn.setAttribute('placeholder', SKT.ph[L()]); }
+  skPh();
+  new MutationObserver(function(){ skPh(); skRun(); }).observe(app, { attributes: true, attributeFilter: ['data-lang'] });
+  function skRun(){
+    var q = skIn.value.trim().toLowerCase(), total = 0;
+    for (var g = 0; g < skGroups.length; g++) {
+      var items = skGroups[g].querySelectorAll('li'), hits = 0;
+      for (var i = 0; i < items.length; i++) {
+        var on = q && items[i].textContent.toLowerCase().indexOf(q) > -1;
+        items[i].classList.toggle('hit', !!on);
+        items[i].classList.toggle('dim', !!q && !on);
+        if (on) hits++;
+      }
+      skGroups[g].hidden = !!q && hits === 0;
+      total += hits;
+    }
+    skCnt.textContent = q ? (total + SKT.n[L()]) : '';
+    skNone.hidden = !(q && total === 0);
+    if (!skNone.hidden) skNone.textContent = SKT.none[L()];
+  }
+  skIn.addEventListener('input', skRun);
+
+  /* skill counts, scroll spy, progress */
+  var sh = document.querySelectorAll('.sk>div');
+  for (var q = 0; q < sh.length; q++) {
+    var c = document.createElement('span'); c.className = 'cnt';
+    c.textContent = sh[q].querySelectorAll('li').length;
+    sh[q].querySelector('h3').appendChild(c);
+  }
+  var navL = document.querySelectorAll('.nav a');
+  if (window.IntersectionObserver) {
+    var spy = new IntersectionObserver(function(es){
+      for (var a = 0; a < es.length; a++) if (es[a].isIntersecting) {
+        for (var b = 0; b < navL.length; b++) navL[b].classList.toggle('on', navL[b].getAttribute('href') === '#' + es[a].target.id);
+      }
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['projects', 'map', 'skills', 'path', 'honest', 'contact'].forEach(function(id){ var el = document.getElementById(id); if (el) spy.observe(el); });
+  }
+  var prog = document.getElementById('prog'), pend = false;
+  function onScroll(){
+    if (pend) return; pend = true;
+    requestAnimationFrame(function(){
+      pend = false;
+      var hmax = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.transform = 'scaleX(' + (hmax > 0 ? Math.min(1, Math.max(0, window.scrollY / hmax)) : 0) + ')';
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* attention map */
+  var cv = document.getElementById('attn');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var W = 0, H = 0, cols = 0, rows = 0, cs = 0, dpr = 1, t = 2.2, raf = 0, vis = true;
+  var tgt = null, qx = null, qy = null, pal = null;
+  function hex(h){ h = h.replace('#', ''); if (h.length === 3) h = h.replace(/(.)/g, '$1$1'); return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  function mix(a, b, k){ return 'rgb(' + Math.round(a[0]+(b[0]-a[0])*k) + ',' + Math.round(a[1]+(b[1]-a[1])*k) + ',' + Math.round(a[2]+(b[2]-a[2])*k) + ')'; }
+  function readPal(){
+    var s = getComputedStyle(cv);
+    pal = [hex(s.getPropertyValue('--cell0').trim()), hex(s.getPropertyValue('--cell1').trim()), hex(s.getPropertyValue('--cell2').trim())];
+  }
+  function draw(){
+    if (!pal) readPal();
+    if (!cols) return;
+    ctx.clearRect(0, 0, W, H);
+    var ax, ay;
+    if (tgt) { ax = tgt.x; ay = tgt.y; }
+    else if (rm.matches) { ax = cols * 0.62; ay = rows * 0.45; }
+    else { ax = cols * (0.5 + 0.36 * Math.sin(t * 0.35)); ay = rows * (0.5 + 0.34 * Math.sin(t * 0.53 + 1)); }
+    if (qx === null || rm.matches) { qx = ax; qy = ay; } else { qx += (ax - qx) * 0.12; qy += (ay - qy) * 0.12; }
+    var sx = cols * cols * 0.018, sy = rows * rows * 0.06;
+    var gap = Math.max(1.5, cs * 0.12), side = cs - gap;
+    for (var j = 0; j < rows; j++) {
+      for (var i = 0; i < cols; i++) {
+        var dx = i - qx, dy = j - qy;
+        var f = Math.exp(-(dx*dx/sx + dy*dy/sy));
+        var wave = 0.5 + 0.5 * Math.sin(i * 0.5 - j * 0.8 - t * 1.1);
+        var past = i <= qx ? 1 : 0.4;
+        var w = 0.06 + 0.2 * wave * past + 0.85 * f * (i <= qx + 1 ? 1 : 0.55);
+        w = Math.max(0, Math.min(1, w));
+        ctx.fillStyle = w < 0.8 ? mix(pal[0], pal[1], w / 0.8) : mix(pal[1], pal[2], (w - 0.8) / 0.2);
+        ctx.fillRect(i * cs + gap / 2, j * cs + gap / 2, side, side);
+      }
+    }
+    var qi = Math.max(0, Math.min(cols - 1, Math.floor(qx))), qj = Math.max(0, Math.min(rows - 1, Math.floor(qy)));
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = mix(pal[2], pal[2], 0);
+    ctx.strokeRect(qi * cs + gap / 2 - 1, qj * cs + gap / 2 - 1, side + 2, side + 2);
+  }
+  function size(){
+    var w = cv.parentNode.clientWidth, hh = cv.parentNode.clientHeight;
+    if (!w || !hh) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cols = Math.max(10, Math.floor(w / (w < 420 ? 18 : 28)));
+    cs = w / cols;
+    rows = Math.ceil(hh / cs);
+    W = w; H = hh;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw();
+  }
+  function frame(ts){
+    t = ts / 1000;
+    draw();
+    raf = (vis && !rm.matches && !document.hidden) ? requestAnimationFrame(frame) : 0;
+  }
+  function start(){ if (!raf && vis && !rm.matches && !document.hidden) raf = requestAnimationFrame(frame); }
+  function aim(e){
+    var r = cv.getBoundingClientRect();
+    tgt = { x: (e.clientX - r.left) / cs, y: (e.clientY - r.top) / cs };
+    if (rm.matches) draw();
+  }
+  var heroEl = document.getElementById('hero');
+  heroEl.addEventListener('pointermove', aim);
+  heroEl.addEventListener('pointerdown', aim);
+  heroEl.addEventListener('pointerleave', function(){ tgt = null; if (rm.matches) draw(); });
+  document.addEventListener('visibilitychange', start);
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function(es){ vis = es[0].isIntersecting; if (vis) start(); }).observe(cv);
+  }
+  if (window.ResizeObserver) new ResizeObserver(size).observe(cv.parentNode); else window.addEventListener('resize', size);
+  new MutationObserver(function(){ readPal(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(){ readPal(); draw(); }); } catch(e) {}
+  try { rm.addEventListener('change', function(){ if (rm.matches) draw(); else start(); }); } catch(e) {}
+  readPal(); size(); start();
+})();
+</script>
+</body>
+</html>

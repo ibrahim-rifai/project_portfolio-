@@ -1,0 +1,14 @@
+{
+  "name": "ibrahim-rifai-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio of Ibrahim Rifai: static page plus two small serverless routes for the assistant and the job fit check.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "node dev.mjs",
+    "start": "node dev.mjs"
+  }
+}
